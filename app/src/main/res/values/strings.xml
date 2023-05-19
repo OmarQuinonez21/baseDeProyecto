@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ATEM</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_habitos">Habitos</string>
+    <string name="title_pomodoro">Pomodoro</string>
+    <string name="title_usuario">Usuario</string>
+    <string name="title_rutina">Rutina</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
