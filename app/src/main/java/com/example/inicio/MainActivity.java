@@ -11,7 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.inicio.databinding.ActivityMainBinding;
-
+// git branch JP
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
