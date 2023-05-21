@@ -26,6 +26,7 @@ public class pomodoroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pomodoro);
+        getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
 
         mButtonStartPause = findViewById(R.id.button_start_pause);

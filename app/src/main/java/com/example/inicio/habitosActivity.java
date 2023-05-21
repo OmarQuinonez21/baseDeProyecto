@@ -10,5 +10,6 @@ public class habitosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_habitos);
+        getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
     }
 }

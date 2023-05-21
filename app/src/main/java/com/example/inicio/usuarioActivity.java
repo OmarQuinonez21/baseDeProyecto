@@ -10,6 +10,7 @@ public class usuarioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario);
+        getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
 
     }
 }
