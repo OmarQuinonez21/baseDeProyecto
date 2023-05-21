@@ -13,13 +13,7 @@
         android:theme="@style/Theme.Inicio"
         tools:targetApi="31">
         <activity
-            android:name=".RegistroActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".IniciarSesionActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
