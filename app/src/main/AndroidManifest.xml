@@ -10,10 +10,12 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo_sin_fondo__1_"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Inicio"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
+
+        <activity android:name=".MainActivity"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".IniciarSesionActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
