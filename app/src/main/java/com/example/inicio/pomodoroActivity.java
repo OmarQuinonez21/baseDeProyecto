@@ -105,7 +105,7 @@ int number1=0;
 
                     mTextViewCountDown.setTextSize(30);
                     mTextViewCountDown.setText(mensaje);
-                    //aqui se puede agregar una booleana para descanso
+                    //aqui se puede agregar una booleana para descanso y cuando salga la boleana dar felicitaciones
                 }
             }.start();
 
