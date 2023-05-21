@@ -1,12 +1,9 @@
 package com.example.inicio;
 
 import android.os.Bundle;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+
 
 import android.os.CountDownTimer;
 import android.view.View;
@@ -15,17 +12,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.inicio.databinding.ActivityMainBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.InputMismatchException;
 import java.util.Locale;
 
 public class pomodoroActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private static final long START_TIME_IN_MILLIS = 600000;
+    private static final long START_TIME_IN_MILLIS = 0;
     private EditText num1;
 
+    private TextView indicaciones;
     private TextView mTextViewCountDown;
 
     private Button mButtonStartPause;
@@ -37,6 +33,10 @@ public class pomodoroActivity extends AppCompatActivity {
     private String mensaje ="¡Felicidades Terminaste!";
 long x=0;
 long y=0;
+
+long o=0;
+
+long d=0;
 int number1=0;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
@@ -55,6 +55,7 @@ int number1=0;
 
         mButtonStartPause = findViewById(R.id.button_start_pause);
         mButtonReset = findViewById(R.id.button_reset);
+        indicaciones = findViewById(R.id.text_view_indicaciones);
 
         mButtonStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +86,9 @@ int number1=0;
                 num1 = (EditText) findViewById(R.id.ingresaMinutos);
                 number1 = Integer.parseInt(num1.getText().toString());
                 x = Long.valueOf(number1);
-                x = x * 60000;
+                x = x * 30000;
+                d= (x/(3));
+                o=x;
             }
 
             num1.setVisibility(View.INVISIBLE);
@@ -98,17 +101,49 @@ int number1=0;
 
                 @Override
                 public void onFinish() {
-                    mTimerRunning = false;
-                    mButtonStartPause.setText("Start");
-                    mButtonStartPause.setVisibility(View.INVISIBLE);
-                    mButtonReset.setVisibility(View.VISIBLE);
+                    mCountDownTimer = new CountDownTimer(d, 1000) {
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                            x = millisUntilFinished;
+                            updateCountDownText();
+                        }
 
-                    mTextViewCountDown.setTextSize(30);
-                    mTextViewCountDown.setText(mensaje);
+                        @Override
+                        public void onFinish() {
+                            mCountDownTimer = new CountDownTimer(o, 1000) {
+                                @Override
+                                public void onTick(long millisUntilFinished) {
+                                    x = millisUntilFinished;
+                                    updateCountDownText();
+                                }
+
+                                @Override
+                                public void onFinish() {
+                                    mTimerRunning = false;
+                                    mButtonStartPause.setText("Start");
+                                    mButtonStartPause.setVisibility(View.INVISIBLE);
+                                    mButtonReset.setVisibility(View.VISIBLE);
+
+                                    mTextViewCountDown.setTextSize(30);
+                                    mTextViewCountDown.setText(mensaje);
+                                    //aqui se puede agregar una booleana para descanso y cuando salga la boleana dar felicitaciones
+                                }
+                            }.start();
+                            indicaciones.setText("Concentrate");
+                            mTimerRunning = true;
+                            mButtonStartPause.setText("pause");
+                            mButtonReset.setVisibility(View.INVISIBLE);
+                            //aqui se puede agregar una booleana para descanso y cuando salga la boleana dar felicitaciones
+                        }
+                    }.start();
+                    indicaciones.setText("Descansa");
+                    mTimerRunning = true;
+                    mButtonStartPause.setText("pause");
+                    mButtonReset.setVisibility(View.INVISIBLE);
                     //aqui se puede agregar una booleana para descanso y cuando salga la boleana dar felicitaciones
                 }
             }.start();
-
+            indicaciones.setText("Concentrate");
             mTimerRunning = true;
             mButtonStartPause.setText("pause");
             mButtonReset.setVisibility(View.INVISIBLE);
@@ -124,6 +159,7 @@ int number1=0;
     }
 
     private void resetTimer() {
+        indicaciones.setText("Ingresa los minutos de concentracion");
         x = START_TIME_IN_MILLIS;
         updateCountDownText();
         mButtonReset.setVisibility(View.INVISIBLE);
