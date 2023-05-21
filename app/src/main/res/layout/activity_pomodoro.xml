@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C0DCF6"
-    tools:context=".pomodoroFragment">
+    android:background="#DAC6F3"
+    tools:context=".pomodoroActivity">
+
 
     <TextView
         android:id="@+id/text_view_countdown"
@@ -29,13 +31,23 @@
         android:id="@+id/button_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_view_countdown"
+        android:layout_below="@+id/button_start_pause"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="11dp"
-        android:layout_toEndOf="@+id/button_start_pause"
         android:text="reset"
         android:visibility="invisible"
         tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/ingresaMinutos"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_above="@+id/text_view_countdown"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:inputType="number"
+        android:text="Minutos a concentrar" />
+
+
 </RelativeLayout>
-
-
-
