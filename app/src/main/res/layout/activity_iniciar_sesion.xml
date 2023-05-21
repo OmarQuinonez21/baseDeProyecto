@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="177dp"
-        android:layout_height="164dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="128dp"
         android:contentDescription="Logo Atem"
         app:layout_constraintEnd_toEndOf="parent"
