@@ -51,6 +51,7 @@
         android:layout_centerVertical="true"
         android:layout_above="@+id/ingresaMinutos"
         android:text="Ingresa los minutos de concentracion:"
+        android:fontFamily="@font/roboto_slab"
         android:gravity="center_horizontal"
         android:textColor="@color/white"
         android:textSize="30sp" />
@@ -60,6 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:fontFamily="@font/roboto_slab"
         android:text="00:00"
         android:textColor="@color/white"
         android:textSize="60sp" />
@@ -67,19 +69,23 @@
     <Button
         android:id="@+id/button_start_pause"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@+id/text_view_countdown"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/button_rounded_res"
+        android:fontFamily="@font/roboto_slab"
         android:text="start" />
 
     <Button
         android:id="@+id/button_reset"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@+id/button_start_pause"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="11dp"
         android:text="reset"
+        android:background="@drawable/button_rounded_res"
+        android:fontFamily="@font/roboto_slab"
         android:visibility="invisible"
         tools:visibility="visible" />
 

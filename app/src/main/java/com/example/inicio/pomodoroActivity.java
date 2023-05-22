@@ -1,5 +1,6 @@
 package com.example.inicio;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -128,10 +129,12 @@ public class pomodoroActivity extends AppCompatActivity {
 
                                     mTextViewCountDown.setTextSize(30);
                                     mTextViewCountDown.setText(mensaje);
+                                    indicaciones.setTextColor(Color.WHITE);
                                     //aqui se puede agregar una booleana para descanso y cuando salga la boleana dar felicitaciones
                                 }
                             }.start();
                             indicaciones.setText("Concentrate");
+                            indicaciones.setTextColor(Color.RED);
                             mTimerRunning = true;
                             mButtonStartPause.setText("pause");
                             mButtonReset.setVisibility(View.INVISIBLE);
@@ -139,6 +142,7 @@ public class pomodoroActivity extends AppCompatActivity {
                         }
                     }.start();
                     indicaciones.setText("Descansa");
+                    indicaciones.setTextColor(Color.GREEN);
                     mTimerRunning = true;
                     mButtonStartPause.setText("pause");
                     mButtonReset.setVisibility(View.INVISIBLE);
@@ -146,6 +150,7 @@ public class pomodoroActivity extends AppCompatActivity {
                 }
             }.start();
             indicaciones.setText("Concentrate");
+            indicaciones.setTextColor(Color.RED);
             mTimerRunning = true;
             mButtonStartPause.setText("pause");
             mButtonReset.setVisibility(View.INVISIBLE);
@@ -162,6 +167,7 @@ public class pomodoroActivity extends AppCompatActivity {
 
     private void resetTimer() {
         indicaciones.setText("Ingresa los minutos de concentracion");
+        indicaciones.setTextColor(Color.WHITE);
         x = START_TIME_IN_MILLIS;
         updateCountDownText();
         mButtonReset.setVisibility(View.INVISIBLE);
