@@ -2,18 +2,11 @@ package com.example.inicio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
@@ -59,7 +52,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
 
     public void signUp(String user, String pass){
         bdHelper databaseBDhelper = new bdHelper(this);
-        databaseBDhelper.insertUser(user, pass);
+        databaseBDhelper.signUp(user, pass);
         showDialog("Registro", "Se ha registrado correctamente");
     }
     public boolean signIn(String user, String pass){
