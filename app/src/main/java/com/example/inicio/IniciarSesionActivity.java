@@ -10,7 +10,6 @@ import android.widget.Button;
 public class IniciarSesionActivity extends AppCompatActivity {
 
     Button btnLogin;
-    Button btnReg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +17,6 @@ public class IniciarSesionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_iniciar_sesion);
         getSupportActionBar().hide();
         btnLogin=findViewById(R.id.log);
-        btnReg=findViewById(R.id.reg);
 
 
         btnLogin.setOnClickListener(new View.OnClickListener(){
@@ -26,14 +24,6 @@ public class IniciarSesionActivity extends AppCompatActivity {
             public void onClick(View view){
                  Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                  startActivity(intent);
-            }
-        });
-
-        btnReg.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(getApplicationContext(),RegistroActivity.class);
-                startActivity(intent);
             }
         });
     }
