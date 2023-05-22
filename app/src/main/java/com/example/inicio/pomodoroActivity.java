@@ -1,15 +1,13 @@
 package com.example.inicio;
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.inicio.databinding.ActivityMainBinding;
 
@@ -168,6 +166,7 @@ int number1=0;
         mTextViewCountDown.setTextSize(60);
         x=0;
         y=0;
+        num1.setText("");
     }
 
     private void updateCountDownText() {
