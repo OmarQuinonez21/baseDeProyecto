@@ -136,7 +136,7 @@ public class pomodoroActivity extends AppCompatActivity {
                             indicaciones.setText("Concentrate");
                             indicaciones.setTextColor(Color.RED);
                             mTimerRunning = true;
-                            mButtonStartPause.setText("pause");
+                            mButtonStartPause.setText("Pause");
                             mButtonReset.setVisibility(View.INVISIBLE);
                             //aqui se puede agregar una booleana para descanso y cuando salga la boleana dar felicitaciones
                         }
@@ -144,7 +144,7 @@ public class pomodoroActivity extends AppCompatActivity {
                     indicaciones.setText("Descansa");
                     indicaciones.setTextColor(Color.GREEN);
                     mTimerRunning = true;
-                    mButtonStartPause.setText("pause");
+                    mButtonStartPause.setText("Pause");
                     mButtonReset.setVisibility(View.INVISIBLE);
                     //aqui se puede agregar una booleana para descanso y cuando salga la boleana dar felicitaciones
                 }
@@ -152,7 +152,7 @@ public class pomodoroActivity extends AppCompatActivity {
             indicaciones.setText("Concentrate");
             indicaciones.setTextColor(Color.RED);
             mTimerRunning = true;
-            mButtonStartPause.setText("pause");
+            mButtonStartPause.setText("Pause");
             mButtonReset.setVisibility(View.INVISIBLE);
         }
 
