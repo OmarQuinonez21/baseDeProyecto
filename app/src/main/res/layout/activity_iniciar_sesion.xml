@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IniciarSesionActivity"
-    android:background="@drawable/fondo">
-
+    android:background="@drawable/fondo"
+    >
 
     <ImageView
         android:id="@+id/imageView"
@@ -36,7 +36,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
     <EditText
         android:id="@+id/pass"
@@ -56,11 +57,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user" />
+        app:layout_constraintTop_toBottomOf="@+id/user"
+        android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
 
     <Button
         android:id="@+id/log"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="48dp"
@@ -70,16 +73,20 @@
         android:fontFamily="@font/roboto_slab"
         android:hint="Login"
         android:text="Iniciar Sesión"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@color/tur_1"
-        android:textStyle="bold"
         android:textSize="20sp"
+        android:textStyle="bold"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
+        app:layout_constraintTop_toBottomOf="@+id/pass"
+        app:rippleColor="@color/az_1" />
 
     <Button
         android:id="@+id/reg"
+        style="@android:style/Widget.DeviceDefault.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="48dp"
@@ -89,9 +96,10 @@
         android:fontFamily="@font/roboto_slab"
         android:hint="Login"
         android:text="Registrar"
+        android:textAllCaps="false"
         android:textColor="@color/az_2"
-        android:textStyle="bold"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
