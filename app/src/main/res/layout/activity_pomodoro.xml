@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DAC6F3"
+    android:background="@color/az_3"
     tools:context=".pomodoroActivity">
 
     <TextView
@@ -17,7 +17,7 @@
         android:layout_above="@+id/ingresaMinutos"
         android:text="Ingresa los minutos de concentracion:"
         android:gravity="center_horizontal"
-        android:textColor="@android:color/black"
+        android:textColor="@color/white"
         android:textSize="30sp" />
     <TextView
         android:id="@+id/text_view_countdown"
@@ -26,7 +26,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="00:00"
-        android:textColor="@android:color/black"
+        android:textColor="@color/white"
         android:textSize="60sp" />
 
     <Button
@@ -57,7 +57,8 @@
         android:ems="10"
         android:gravity="center_horizontal"
         android:inputType="number"
-        android:text="" />
+        android:text=""
+        android:hint="Ingresa los minutos"/>
 
 
 </RelativeLayout>
