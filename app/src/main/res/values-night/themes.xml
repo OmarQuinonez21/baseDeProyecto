@@ -5,10 +5,10 @@
     <item name="colorPrimary">@color/tur_1</item>
     <item name="colorPrimaryVariant">@color/tur_2</item>
     <item name="colorOnPrimary">@color/tur_3</item>
-    <item name="colorSurface">@color/white</item>
+    <item name="colorSurface">@color/az_2</item>
     <item name="android:colorBackground">@color/az_3</item>
     <!-- Secondary brand color. -->
-    <item name="colorSecondary">@color/az_1</item>
+    <item name="colorSecondary">@color/tur_2</item>
     <item name="colorSecondaryVariant">@color/az_2</item>
     <item name="colorOnSecondary">@color/black</item>
     <!-- Status bar color. -->

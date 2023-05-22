@@ -5,6 +5,7 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +15,6 @@ import com.example.inicio.databinding.ActivityMainBinding;
 import java.util.Locale;
 
 public class pomodoroActivity extends AppCompatActivity {
-
     private ActivityMainBinding binding;
     private static final long START_TIME_IN_MILLIS = 0;
     private EditText num1;
@@ -29,14 +29,15 @@ public class pomodoroActivity extends AppCompatActivity {
 
     private boolean mTimerRunning;
     private String mensaje ="¡Felicidades Terminaste!";
-long x=0;
-long y=0;
+    long x=0;
+    long y=0;
 
-long o=0;
+    long o=0;
 
-long d=0;
-int number1=0;
+    long d=0;
+    int number1=0;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    ImageButton btnRegresar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +47,18 @@ int number1=0;
 
         setContentView(R.layout.activity_pomodoro);
         getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
-
-
-
+        btnRegresar=(ImageButton)findViewById(R.id.regreso_pomo);
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
-
         mButtonStartPause = findViewById(R.id.button_start_pause);
         mButtonReset = findViewById(R.id.button_reset);
         indicaciones = findViewById(R.id.text_view_indicaciones);
 
+        btnRegresar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                onBackPressed();
+            }
+        });
         mButtonStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
