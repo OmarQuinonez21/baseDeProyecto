@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.inicio.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -16,6 +17,8 @@ public class RutinaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_rutina);
         getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
         btnRegresar=(ImageButton)findViewById(R.id.regreso_rut);
@@ -32,7 +35,6 @@ public class RutinaActivity extends AppCompatActivity {
             } else if (item.getItemId()==R.id.navigation_home) {
                 finish();
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
                 return true;
             }
 
