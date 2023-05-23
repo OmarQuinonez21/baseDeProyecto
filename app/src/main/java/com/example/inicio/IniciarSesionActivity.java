@@ -33,10 +33,10 @@ public class IniciarSesionActivity extends AppCompatActivity {
             public void onClick(View view){
                 usuario=user.getText().toString().trim();
                 password=pass.getText().toString().trim();
-                    if (signIn(usuario,password)) {
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                    }
+                if (signIn(usuario,password)) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
 
             }
         });
