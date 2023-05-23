@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,30 +8,209 @@
     android:background="@color/az_3"
     tools:context=".habitosActivity">
 
-    <TextView
-        android:id="@+id/tit_habitos"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tit_Habitos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/roboto_slab"
+            android:text="Crear habitos"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:id="@+id/text_view_indicacionesHabitos"
+            android:layout_width="308dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="48dp"
+            android:fontFamily="@font/roboto_slab"
+            android:gravity="center"
+            android:text="Ingrese los datos en los campos correspondientes"
+            android:textColor="@color/tur_1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
+        <EditText
+            android:id="@+id/et_nombreHabito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="125dp"
+            android:layout_marginEnd="48dp"
+            android:backgroundTint="@color/tur_1"
+            android:ems="10"
+            android:fontFamily="@font/roboto_slab"
+            android:hint="Nombre"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/et_categoriaHabito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:backgroundTint="@color/tur_1"
+            android:ems="10"
+            android:fontFamily="@font/roboto_slab"
+            android:hint="Categoria"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:layout_below="@+id/et_nombreHabito"  />
+        <EditText
+            android:id="@+id/et_Frecuencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:backgroundTint="@color/tur_1"
+            android:ems="10"
+            android:fontFamily="@font/roboto_slab"
+            android:hint="Veces al día"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:layout_below="@+id/et_categoriaHabito"  />
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="308dp"
+            android:layout_height="250sp"
+            android:layout_marginStart="48dp"
+            android:layout_below="@+id/et_Frecuencia" >
+            <CheckBox android:id="@+id/checkbox_lunes"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Lunes"
+                android:onClick="onCheckboxClicked"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <CheckBox android:id="@+id/checkbox_martes"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Martes"
+                android:onClick="onCheckboxClicked"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <CheckBox android:id="@+id/checkbox_miercoles"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Miercoles"
+                android:onClick="onCheckboxClicked"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <CheckBox android:id="@+id/checkbox_jueves"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Jueves"
+                android:onClick="onCheckboxClicked"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <CheckBox android:id="@+id/checkbox_viernes"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Viernes"
+                android:onClick="onCheckboxClicked"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <CheckBox android:id="@+id/checkbox_sabado"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Sabado"
+                android:onClick="onCheckboxClicked"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <CheckBox android:id="@+id/checkbox_domingo"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Domingo"
+                android:onClick="onCheckboxClicked"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="308dp"
+            android:layout_height="48sp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="540dp">
+
+            <Button
+                android:id="@+id/btn_habitoGuardar"
+                android:background="@drawable/button_rounded_res"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textAllCaps="false"
+                android:textColor="@color/az_2"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Guardar"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fabCradleMargin="10dp"
+        app:fabCradleVerticalOffset="10dp"
+        app:fabCradleRoundedCornerRadius="20dp"
+        android:layout_gravity="bottom">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            app:menu="@menu/bottom_nav_menu" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/roboto_slab"
-        android:text="Hábitos"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/baseline_check_24"
+        app:layout_anchor="@id/bottomAppBar" />
 
-    <ImageButton
-        android:id="@+id/regreso_pomo"
-        android:layout_width="43dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/az_3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_arrow_back_ios_new_24"
-        tools:ignore="MissingConstraints" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
