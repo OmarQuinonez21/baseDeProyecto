@@ -19,8 +19,12 @@ public class RutinaActivity extends AppCompatActivity {
         btnRegresar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+
                 onBackPressed();
+
             }
         });
+
+
     }
 }
