@@ -3,6 +3,7 @@ package com.example.inicio;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -21,6 +22,7 @@ public class habitosActivity extends AppCompatActivity {
 
         BottomNavigationView navHabitos = findViewById(R.id.bottomNavigationView);
         navHabitos.setBackground(null);
+
 
         navHabitos.setOnItemSelectedListener(item->{
             if(item.getItemId()==R.id.navigation_pomo){

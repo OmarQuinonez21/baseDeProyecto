@@ -41,7 +41,7 @@
             android:layout_marginEnd="48dp"
             android:fontFamily="@font/roboto_slab"
             android:gravity="center"
-            android:text="Ingrese sus datos en los campos correspondientes"
+            android:text="Ingrese los datos en los campos correspondientes"
             android:textColor="@color/tur_1"
             android:textSize="15sp"
             android:textStyle="bold"
