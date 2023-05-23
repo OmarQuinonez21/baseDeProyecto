@@ -1,28 +1,35 @@
 package com.example.inicio;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.Calendar;
 
 public class RegistroActivity extends AppCompatActivity implements View.OnClickListener {
-
+    private static final int REQUEST_SELECT_IMAGE = 100;
     //Variables para invocar un calendario
     ImageButton btnRegresar;
-    Button btnBorrar, btnRegistrar;
+    Button btnBorrar, btnRegistrar, btnCambiar;
     EditText fecha;
     private int dia,mes,ano;
     EditText et_nom, et_user, et_correo, et_fecha, et_pais, et_ciudad, et_pass;
-    String nombre, usuario, correo, Sfecha, pais, ciudad, pass;
+    ImageView imgUser;
+    String nombre, usuario, correo, Sfecha, pais, ciudad, pass, img;
+    Uri selectedImageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +39,10 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         btnRegresar=(ImageButton)findViewById(R.id.regreso_reg);
         btnBorrar=(Button)findViewById(R.id.btnborrar);
         btnRegistrar=(Button)findViewById(R.id.btnregistrar);
+        btnCambiar=(Button)findViewById(R.id.btn_cambiar);
         fecha = (EditText)findViewById(R.id.et_fecha);
         fecha.setOnClickListener(this);
-
+        imgUser = (ImageView) findViewById(R.id.img_user);
         et_nom=findViewById(R.id.et_nombre);
         et_user=findViewById(R.id.et_user);
         et_correo=findViewById(R.id.et_correo);
@@ -67,10 +75,32 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 pais=et_pais.getText().toString().trim();
                 ciudad=et_ciudad.getText().toString().trim();
                 pass=et_pass.getText().toString().trim();
-                signUp(nombre,usuario,correo,Sfecha,pais,ciudad,pass);
+                img = selectedImageUri.toString();
+                signUp(nombre,usuario,correo,Sfecha,pais,ciudad,pass,img);
             }
         });
+        btnCambiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setType("image/*");
+                startActivityForResult(intent, REQUEST_SELECT_IMAGE);
+            }
+        });
+
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_SELECT_IMAGE && resultCode == RESULT_OK) {
+            if (data != null) {
+                selectedImageUri = data.getData();
+                imgUser.setImageURI(selectedImageUri);
+            }
+        }
+    }
+
 
     //Al hacer click se mostrara un calendario  y se guardan los valores seleccionados en el texto
     @Override
@@ -90,9 +120,9 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         datePickerDialog.show();
     }
 
-    public void signUp(String nombre, String user, String correo, String sfecha, String pais, String ciudad,String pass){
+    public void signUp(String nombre, String user, String correo, String sfecha, String pais, String ciudad,String pass,String img){
         bdHelper databaseBDhelper = new bdHelper(this);
-        databaseBDhelper.signUp(nombre,user,correo,sfecha,pais,ciudad,pass);
+        databaseBDhelper.signUp(nombre,user,correo,sfecha,pais,ciudad,pass,img);
         showDialog("Registro", "Se ha registrado correctamente");
     }
 

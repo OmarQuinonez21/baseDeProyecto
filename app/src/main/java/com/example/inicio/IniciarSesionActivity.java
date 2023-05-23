@@ -35,6 +35,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
                 password=pass.getText().toString().trim();
                 if (signIn(usuario,password)) {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.putExtra("nombre_usuario", usuario);
                     startActivity(intent);
                 }
 

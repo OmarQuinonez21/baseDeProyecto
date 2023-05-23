@@ -13,10 +13,6 @@
         android:theme="@style/Theme.Inicio"
         tools:targetApi="31">
         <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login" />
-        <activity
             android:name=".usuarioActivity"
             android:exported="false" />
         <activity
@@ -48,5 +44,5 @@
             android:name=".RegistroActivity"
             android:exported="false" />
     </application>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>

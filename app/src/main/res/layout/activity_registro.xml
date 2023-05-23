@@ -204,11 +204,10 @@
     <Button
         android:id="@+id/btnborrar"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginStart="48dp"
+        android:layout_width="194dp"
+        android:layout_height="46dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/button_rounded"
         android:fontFamily="@font/roboto_slab"
         android:hint="Login"
@@ -219,18 +218,17 @@
         android:textStyle="bold"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_pass" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnregistrar"
+        app:layout_constraintTop_toBottomOf="@+id/img_user" />
 
     <Button
         android:id="@+id/btnregistrar"
         style="@android:style/Widget.DeviceDefault.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="48dp"
+        android:layout_width="156dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
         android:background="@drawable/button_rounded_res"
         android:fontFamily="@font/roboto_slab"
         android:hint="Login"
@@ -239,10 +237,8 @@
         android:textColor="@color/az_2"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnborrar" />
+        app:layout_constraintTop_toBottomOf="@+id/img_user" />
 
     <TextView
         android:id="@+id/terminos"
@@ -259,6 +255,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_user"
+        android:layout_width="87dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_pass"
+        app:srcCompat="@drawable/baseline_person_24" />
+
+    <Button
+        android:id="@+id/btn_cambiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:text="Subir..."
+        app:layout_constraintStart_toEndOf="@+id/img_user"
+        app:layout_constraintTop_toBottomOf="@+id/et_pass" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

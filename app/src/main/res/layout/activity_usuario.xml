@@ -32,4 +32,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgV_usuario"
+        android:layout_width="149dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tit_us"
+        app:srcCompat="@drawable/baseline_person_24" />
+
+    <Button
+        android:id="@+id/btn_user_img"
+        android:layout_width="116dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="24dp"
+        android:text="Cambiar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgV_usuario" />
 </androidx.constraintlayout.widget.ConstraintLayout>

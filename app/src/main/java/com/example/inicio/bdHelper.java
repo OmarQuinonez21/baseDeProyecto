@@ -13,7 +13,7 @@ public class bdHelper extends SQLiteOpenHelper {
     // crear y ejecutar toda esta clase (por ende se crea la base de datos y la tabla).
     // Si queremos que se vuelva a correr este código, ya sea porque creamos otra tabla o agregamos una columna a una tabla,
     // aumentamos la versión (si estaba en 1, ponemos 2 y así) y ahora se ejecutaría el onUprgade
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
     //Nombre de la tabla
     public static final String TABLE_USERS = "usuarios";
     //Nombre de la columna id
@@ -32,6 +32,7 @@ public class bdHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CIUDAD = "ciudad";
     //Nombre de la columna password
     public static final String COLUMN_PASSWORD = "password";
+    public static final String COLUMN_IMG = "img";
 
 
     public bdHelper(Context context) {
@@ -48,7 +49,8 @@ public class bdHelper extends SQLiteOpenHelper {
                 COLUMN_FECHA + " TEXT, "+
                 COLUMN_PAIS + " TEXT, "+
                 COLUMN_CIUDAD + " TEXT,"+
-                COLUMN_PASSWORD + " TEXT)";
+                COLUMN_PASSWORD + " TEXT,"+
+                COLUMN_IMG + " TEXT)";
         sqLiteDatabase.execSQL(createTableQuery);
     }
     //Este método se ejecuta si aumentamos el DATABASE_VERSION
@@ -59,7 +61,7 @@ public class bdHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
     //Método para registrar un usuario
-    public void signUp(String nombre, String user, String correo, String sfecha, String pais, String ciudad,String pass) {
+    public void signUp(String nombre, String user, String correo, String sfecha, String pais, String ciudad,String pass, String img) {
         SQLiteDatabase db = this.getWritableDatabase();
         String insertQuery = "INSERT INTO " + TABLE_USERS + " (" +
                 COLUMN_NOMBRE + ", "+
@@ -68,14 +70,16 @@ public class bdHelper extends SQLiteOpenHelper {
                 COLUMN_FECHA + ", "+
                 COLUMN_PAIS + ", "+
                 COLUMN_CIUDAD+ ", "+
-                COLUMN_PASSWORD + ") VALUES ('" +
+                COLUMN_PASSWORD + ", "+
+                COLUMN_IMG + ") VALUES ('" +
                 nombre + "', '" +
                 user + "', '"+
                 correo + "', '"+
                 sfecha + "', '" +
                 pais + "', '"+
                 ciudad + "', '"+
-                pass + "')";
+                pass + "', '"+
+                img + "')";
         db.execSQL(insertQuery);
         db.close();
     }
@@ -87,7 +91,7 @@ public class bdHelper extends SQLiteOpenHelper {
                 COLUMN_PASSWORD + " ='"+pass+"'";
         Cursor cursor = db.rawQuery(query, null);
         boolean loginSuccessful = cursor.getCount() > 0;
-        Log.d("Database Hekper", String.valueOf(loginSuccessful));
+        Log.d("Database Helper", String.valueOf(loginSuccessful));
         cursor.close();
         db.close();
 
