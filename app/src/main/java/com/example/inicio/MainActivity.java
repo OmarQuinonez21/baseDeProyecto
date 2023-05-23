@@ -1,17 +1,16 @@
 package com.example.inicio;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.example.inicio.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+// git branch JP
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -19,21 +18,58 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        //Buscar como abrir inicio de sesion de entrada
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         getSupportActionBar().hide();
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+
+        BottomNavigationView navView = findViewById(R.id.bottomNavigationView);
+        navView.setSelectedItemId(R.id.navigation_home);
+        navView.setBackground(null);
+
+        navView.setOnItemSelectedListener(item->{
+            if(item.getItemId()==R.id.navigation_pomo){
+                finish();
+                startActivity(new Intent(getApplicationContext(), pomodoroActivity.class));
+                return true;
+            } else if (item.getItemId()==R.id.navigation_rut) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), RutinaActivity.class));
+
+                return true;
+            }
+            else if (item.getItemId()==R.id.navigation_usuario) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), usuarioActivity.class));
+
+                return true;
+            }
+
+
+            return true;
+        });
+
+        FloatingActionButton fButton = findViewById(R.id.fab);
+        fButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), habitosActivity.class));
+
+            }
+        });
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+
+        //Esta es la configuracion de la barra por defecto de android studio
+
+       /* AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_hab, R.id.navigation_pomo, R.id.navigation_rut, R.id.navigation_usuario)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+        NavigationUI.setupWithNavController(binding.bottomNavigationView, navController);*/
     }
 
 }
