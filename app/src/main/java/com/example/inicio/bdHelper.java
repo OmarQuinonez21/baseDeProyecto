@@ -98,4 +98,19 @@ public class bdHelper extends SQLiteOpenHelper {
         return loginSuccessful;
 
     }
+    public Cursor obtenerDatosUsuario(String nombreUsuario) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] projection = {
+                "columna1",
+                "columna2",
+                // ... Agrega aquí el nombre de las columnas que deseas obtener
+        };
+
+        String selection = "nombre_usuario=?";
+        String[] selectionArgs = {nombreUsuario};
+
+        Cursor cursor = db.query("tabla", projection, selection, selectionArgs, null, null, null);
+        return cursor;
+    }
 }
