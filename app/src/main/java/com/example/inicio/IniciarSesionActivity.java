@@ -32,8 +32,8 @@ public class IniciarSesionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 //brinco de usuario
-                Intent inte = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(inte);
+                //Intent inte = new Intent(getApplicationContext(), MainActivity.class);
+                //startActivity(inte);
 
 
                 usuario=user.getText().toString().trim();

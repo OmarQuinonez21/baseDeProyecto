@@ -52,32 +52,6 @@ public class pomodoroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pomodoro);
         getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
 
-        BottomNavigationView navPomo = findViewById(R.id.bottomNavigationView);
-        navPomo.setSelectedItemId(R.id.navigation_pomo);
-        navPomo.setBackground(null);
-
-        navPomo.setOnItemSelectedListener(item->{
-            if(item.getItemId()==R.id.navigation_rut){
-                finish();
-                startActivity(new Intent(getApplicationContext(), RutinaActivity.class));
-                return true;
-            } else if (item.getItemId()==R.id.navigation_home) {
-                finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
-                return true;
-            }
-            else if (item.getItemId()==R.id.navigation_usuario) {
-                finish();
-                startActivity(new Intent(getApplicationContext(), usuarioActivity.class));
-
-                return true;
-            }
-
-
-            return true;
-        });
-
         FloatingActionButton fButton = findViewById(R.id.fab);
         fButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +93,32 @@ public class pomodoroActivity extends AppCompatActivity {
         });
 
         updateCountDownText();
+
+        BottomNavigationView navPomo = findViewById(R.id.bottomNavigationView);
+        navPomo.setSelectedItemId(R.id.navigation_pomo);
+        navPomo.setBackground(null);
+
+        navPomo.setOnItemSelectedListener(item->{
+            if(item.getItemId()==R.id.navigation_rut){
+                finish();
+                startActivity(new Intent(getApplicationContext(), RutinaActivity.class));
+                return true;
+            } else if (item.getItemId()==R.id.navigation_home) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                return true;
+            }
+            else if (item.getItemId()==R.id.navigation_usuario) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), usuarioActivity.class));
+
+                return true;
+            }
+
+
+            return true;
+        });
     }
 
     private void startTimer() {

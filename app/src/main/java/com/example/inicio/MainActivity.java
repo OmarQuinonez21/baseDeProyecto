@@ -29,14 +29,17 @@ public class MainActivity extends AppCompatActivity {
 
         navView.setOnItemSelectedListener(item->{
             if(item.getItemId()==R.id.navigation_pomo){
+                finish();
                 startActivity(new Intent(getApplicationContext(), pomodoroActivity.class));
                 return true;
             } else if (item.getItemId()==R.id.navigation_rut) {
+                finish();
                 startActivity(new Intent(getApplicationContext(), RutinaActivity.class));
 
                 return true;
             }
             else if (item.getItemId()==R.id.navigation_usuario) {
+                finish();
                 startActivity(new Intent(getApplicationContext(), usuarioActivity.class));
 
                 return true;
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         fButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 startActivity(new Intent(getApplicationContext(), habitosActivity.class));
 
             }
