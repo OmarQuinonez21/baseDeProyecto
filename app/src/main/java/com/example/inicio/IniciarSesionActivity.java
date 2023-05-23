@@ -31,6 +31,11 @@ public class IniciarSesionActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                //brinco de usuario
+                Intent inte = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(inte);
+
+
                 usuario=user.getText().toString().trim();
                 password=pass.getText().toString().trim();
                 if (signIn(usuario,password)) {

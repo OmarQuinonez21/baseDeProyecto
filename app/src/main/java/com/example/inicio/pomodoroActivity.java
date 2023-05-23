@@ -1,5 +1,6 @@
 package com.example.inicio;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.inicio.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Locale;
 
@@ -48,6 +51,43 @@ public class pomodoroActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_pomodoro);
         getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
+
+        BottomNavigationView navPomo = findViewById(R.id.bottomNavigationView);
+        navPomo.setSelectedItemId(R.id.navigation_pomo);
+        navPomo.setBackground(null);
+
+        navPomo.setOnItemSelectedListener(item->{
+            if(item.getItemId()==R.id.navigation_rut){
+                finish();
+                startActivity(new Intent(getApplicationContext(), RutinaActivity.class));
+                return true;
+            } else if (item.getItemId()==R.id.navigation_home) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                return true;
+            }
+            else if (item.getItemId()==R.id.navigation_usuario) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), usuarioActivity.class));
+
+                return true;
+            }
+
+
+            return true;
+        });
+
+        FloatingActionButton fButton = findViewById(R.id.fab);
+        fButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), habitosActivity.class));
+
+            }
+        });
+
         btnRegresar=(ImageButton)findViewById(R.id.regreso_pomo);
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
         mButtonStartPause = findViewById(R.id.button_start_pause);

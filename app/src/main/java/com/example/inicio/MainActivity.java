@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         navView.setSelectedItemId(R.id.navigation_home);
         navView.setBackground(null);
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item->{
+        navView.setOnItemSelectedListener(item->{
             if(item.getItemId()==R.id.navigation_pomo){
                 startActivity(new Intent(getApplicationContext(), pomodoroActivity.class));
                 return true;
