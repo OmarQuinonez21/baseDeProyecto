@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tit_reg" />
 
     <EditText
-        android:id="@+id/nombre"
+        android:id="@+id/et_nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/user_re"
+        android:id="@+id/et_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -90,10 +90,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+        app:layout_constraintTop_toBottomOf="@+id/et_nombre" />
 
     <EditText
-        android:id="@+id/correo"
+        android:id="@+id/et_correo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -110,10 +110,10 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_re" />
+        app:layout_constraintTop_toBottomOf="@+id/et_user" />
 
     <EditText
-        android:id="@+id/fecha"
+        android:id="@+id/et_fecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -134,11 +134,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/correo" />
+        app:layout_constraintTop_toBottomOf="@+id/et_correo" />
 
 
     <EditText
-        android:id="@+id/pais"
+        android:id="@+id/et_pais"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -156,10 +156,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fecha" />
+        app:layout_constraintTop_toBottomOf="@+id/et_fecha" />
 
     <EditText
-        android:id="@+id/ciudad"
+        android:id="@+id/et_ciudad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -177,11 +177,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pais" />
+        app:layout_constraintTop_toBottomOf="@+id/et_pais" />
 
 
     <EditText
-        android:id="@+id/password_re"
+        android:id="@+id/et_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -198,11 +198,11 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ciudad" />
+        app:layout_constraintTop_toBottomOf="@+id/et_ciudad" />
 
 
     <Button
-        android:id="@+id/borrar"
+        android:id="@+id/btnborrar"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="52dp"
@@ -221,10 +221,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_re" />
+        app:layout_constraintTop_toBottomOf="@+id/et_pass" />
 
     <Button
-        android:id="@+id/reg2"
+        android:id="@+id/btnregistrar"
         style="@android:style/Widget.DeviceDefault.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="52dp"
@@ -242,7 +242,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/borrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnborrar" />
 
     <TextView
         android:id="@+id/terminos"
