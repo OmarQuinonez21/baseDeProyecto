@@ -43,18 +43,12 @@ public class IniciarSesionActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                usuario=user.getText().toString().trim();
-                password=pass.getText().toString().trim();
-                signUp(usuario,password);
+                Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
+                startActivity(intent);
             }
         });
     }
 
-    public void signUp(String user, String pass){
-        bdHelper databaseBDhelper = new bdHelper(this);
-        databaseBDhelper.signUp(user, pass);
-        showDialog("Registro", "Se ha registrado correctamente");
-    }
     public boolean signIn(String user, String pass){
         bdHelper databaseBDhelper = new bdHelper(this);
         boolean login = databaseBDhelper.signIn(user, pass);
