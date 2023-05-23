@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
+        //Esta es la configuracion de la barra por defecto de android studio
+
        /* AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_hab, R.id.navigation_pomo, R.id.navigation_rut, R.id.navigation_usuario)
                 .build();
