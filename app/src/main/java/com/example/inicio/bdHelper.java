@@ -102,15 +102,17 @@ public class bdHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String[] projection = {
-                "columna1",
-                "columna2",
+                "nommbre",
+                "username",
+                "pais",
+                "img"
                 // ... Agrega aquí el nombre de las columnas que deseas obtener
         };
 
-        String selection = "nombre_usuario=?";
+        String selection = "username=?";
         String[] selectionArgs = {nombreUsuario};
 
-        Cursor cursor = db.query("tabla", projection, selection, selectionArgs, null, null, null);
+        Cursor cursor = db.query("usuarios", projection, selection, selectionArgs, null, null, null);
         return cursor;
     }
 }
