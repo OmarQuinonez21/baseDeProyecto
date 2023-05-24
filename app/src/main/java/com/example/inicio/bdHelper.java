@@ -34,6 +34,31 @@ public class bdHelper extends SQLiteOpenHelper {
     public static final String COLUMN_PASSWORD = "password";
     public static final String COLUMN_IMG = "img";
 
+    //Nombre de la tabla 2
+    public static final String TABLE_HABITS= "habitos";
+    //Nombre de la columna id
+    public static final String COLUMN_ID_HABITS = "idHabitos";
+    //Nombre de la columna nombre
+    public static final String COLUMN_HABIT = "habito";
+    //Nombre de la columna categoria
+    public static final String COLUMN_CATEGORY = "categoria";
+    //Nombre de la columna frecuencia
+    public static final String COLUMN_TIMES = "frecuencia";
+    //Nombre de la columna lunes
+    public static final String COLUMN_LUNES = "lunes";
+    //Nombre de la columna lunes
+    public static final String COLUMN_MARTES = "martes";
+    //Nombre de la columna lunes
+    public static final String COLUMN_MIERCOLES = "miercoles";
+    //Nombre de la columna lunes
+    public static final String COLUMN_JUEVES = "jueves";
+    //Nombre de la columna lunes
+    public static final String COLUMN_VIERNES = "viernes";
+    //Nombre de la columna lunes
+    public static final String COLUMN_SABADO = "sabado";
+    //Nombre de la columna lunes
+    public static final String COLUMN_DOMINGO = "domingo";
+
 
     public bdHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,27 +66,73 @@ public class bdHelper extends SQLiteOpenHelper {
     //Este método solo se corre la primera vez que se ejecuta una instancia.
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String createTableQuery = "CREATE TABLE " + TABLE_USERS + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_NOMBRE + " TEXT,"+
-                COLUMN_USERNAME + " TEXT," +
-                COLUMN_CORREO + " TEXT,"+
-                COLUMN_FECHA + " TEXT, "+
-                COLUMN_PAIS + " TEXT, "+
-                COLUMN_CIUDAD + " TEXT,"+
-                COLUMN_PASSWORD + " TEXT,"+
-                COLUMN_IMG + " TEXT)";
-        sqLiteDatabase.execSQL(createTableQuery);
-
+        String[] createTableQuery = {
+                "CREATE TABLE " + TABLE_USERS + "(" +
+                        COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        COLUMN_NOMBRE + " TEXT,"+
+                        COLUMN_USERNAME + " TEXT," +
+                        COLUMN_CORREO + " TEXT,"+
+                        COLUMN_FECHA + " TEXT, "+
+                        COLUMN_PAIS + " TEXT, "+
+                        COLUMN_CIUDAD + " TEXT,"+
+                        COLUMN_PASSWORD + " TEXT,"+
+                        COLUMN_IMG + " TEXT); ",
+                "CREATE TABLE " + TABLE_HABITS + "(" +
+                        COLUMN_ID_HABITS + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        COLUMN_HABIT + " TEXT,"+
+                        COLUMN_CATEGORY + " TEXT," +
+                        COLUMN_TIMES + " INTEGER,"+
+                        COLUMN_LUNES + " INTEGER, "+
+                        COLUMN_MARTES + " INTEGER, "+
+                        COLUMN_MIERCOLES + " INTEGER,"+
+                        COLUMN_VIERNES + " INTEGER,"+
+                        COLUMN_SABADO + " INTEGER,"+
+                        COLUMN_DOMINGO+ " INTEGER)"
+        };
+               for(String createTableQuerys : createTableQuery) {
+                   sqLiteDatabase.execSQL(createTableQuerys);
+               }
 
     }
     //Este método se ejecuta si aumentamos el DATABASE_VERSION
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        String dropTableQuery = "DROP TABLE IF EXISTS " + TABLE_USERS;
-        sqLiteDatabase.execSQL(dropTableQuery);
+        String[] dropTableQuery = {
+                "DROP TABLE IF EXISTS " + TABLE_USERS,
+                "DROP TABLE IF EXISTS " + TABLE_HABITS,
+        };
+        for(String dropTableQuerys : dropTableQuery) {
+            sqLiteDatabase.execSQL(dropTableQuerys);
+        }
         onCreate(sqLiteDatabase);
     }
+
+    /*Metodo para guardar un habito
+    public void guardarHabito(String nombre, String user, String correo, String sfecha, String pais, String ciudad,String pass, String img) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String insertQuery = "INSERT INTO " + TABLE_USERS + " (" +
+                COLUMN_NOMBRE + ", "+
+                COLUMN_USERNAME + ", " +
+                COLUMN_CORREO + ", "+
+                COLUMN_FECHA + ", "+
+                COLUMN_PAIS + ", "+
+                COLUMN_CIUDAD+ ", "+
+                COLUMN_PASSWORD + ", "+
+                COLUMN_IMG + ") VALUES ('" +
+                nombre + "', '" +
+                user + "', '"+
+                correo + "', '"+
+                sfecha + "', '" +
+                pais + "', '"+
+                ciudad + "', '"+
+                pass + "', '"+
+                img + "')";
+        db.execSQL(insertQuery);
+        db.close();
+    }
+
+     */
     //Método para registrar un usuario
     public void signUp(String nombre, String user, String correo, String sfecha, String pais, String ciudad,String pass, String img) {
         SQLiteDatabase db = this.getWritableDatabase();
