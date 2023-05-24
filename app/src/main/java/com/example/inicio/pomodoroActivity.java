@@ -42,7 +42,6 @@ public class pomodoroActivity extends AppCompatActivity {
     long d=0;
     int number1=0;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
-    ImageButton btnRegresar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,18 +62,12 @@ public class pomodoroActivity extends AppCompatActivity {
             }
         });
 
-        btnRegresar=(ImageButton)findViewById(R.id.regreso_pomo);
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
         mButtonStartPause = findViewById(R.id.button_start_pause);
         mButtonReset = findViewById(R.id.button_reset);
         indicaciones = findViewById(R.id.text_view_indicaciones);
-
-        btnRegresar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                onBackPressed();
-            }
-        });
+        mTextViewCountDown.setVisibility(View.VISIBLE);
+        mButtonReset.setVisibility(View.INVISIBLE);
         mButtonStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
