@@ -45,20 +45,25 @@ public class habitosActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 onCheckboxClicked(view);
-                name=nombre.getText().toString().trim();
-                category=categoria.getText().toString().trim();
-                diasnumero=nDias.getText().toString().trim();
-                guardarHabito(name,category,diasnumero,lunes,martes,miercoles,jueves,viernes,sabado,domingo);
-                nombre.setText("");
-                categoria.setText("");
-                nDias.setText("");
-                cbLunes.setChecked(false);
-                cbMartes.setChecked(false);
-                cbMiercoles.setChecked(false);
-                cbJueves.setChecked(false);
-                cbViernes.setChecked(false);
-                cbSabado.setChecked(false);
-                cbDomingo.setChecked(false);
+                if(nombre.getText().toString().length()>11){
+                    showDialog("Error", "Use 11 caracteres como maximo");
+                }
+                else{
+                    name=nombre.getText().toString().trim();
+                    category=categoria.getText().toString().trim();
+                    diasnumero=nDias.getText().toString().trim();
+                    guardarHabito(name,category,diasnumero,lunes,martes,miercoles,jueves,viernes,sabado,domingo);
+                    nombre.setText("");
+                    categoria.setText("");
+                    nDias.setText("");
+                    cbLunes.setChecked(false);
+                    cbMartes.setChecked(false);
+                    cbMiercoles.setChecked(false);
+                    cbJueves.setChecked(false);
+                    cbViernes.setChecked(false);
+                    cbSabado.setChecked(false);
+                    cbDomingo.setChecked(false);
+                }
 
             }
         });

@@ -1,16 +1,14 @@
 package com.example.inicio;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.inicio.entidades.habitos;
+import com.example.inicio.entidadesRutina.Rutina;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class bdHelper extends SQLiteOpenHelper {
     //Nombre de la base de datos
@@ -186,10 +184,9 @@ public class bdHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String[] projection = {
-                "id",
                 "nombre",
                 "username",
-                "password",
+                "pais",
                 "img"
                 // ... Agrega aquí el nombre de las columnas que deseas obtener
         };

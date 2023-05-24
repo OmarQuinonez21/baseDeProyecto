@@ -172,6 +172,7 @@ public class pomodoroActivity extends AppCompatActivity {
                                     mTextViewCountDown.setTextSize(30);
                                     mTextViewCountDown.setText(mensaje);
                                     indicaciones.setTextColor(Color.WHITE);
+                                    indicaciones.setVisibility(View.INVISIBLE);
                                     //aqui se puede agregar una booleana para descanso y cuando salga la boleana dar felicitaciones
                                 }
                             }.start();
@@ -209,6 +210,7 @@ public class pomodoroActivity extends AppCompatActivity {
 
     private void resetTimer() {
         indicaciones.setText("Ingresa los minutos de concentracion");
+        indicaciones.setVisibility(View.VISIBLE);
         indicaciones.setTextColor(Color.WHITE);
         x = START_TIME_IN_MILLIS;
         updateCountDownText();
