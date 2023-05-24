@@ -3,32 +3,75 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/otroLayout">
 
-
-    <TextView
-        android:id="@+id/viewHabitos"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/tur_2"
-        android:fontFamily="@font/roboto_slab"
-        android:text="Hábitos"
-        android:textColor="@color/az_2"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/viewHabitos"
+            android:layout_width="411dp"
+            android:layout_height="40dp"
+            android:background="@color/tur_2"
+            android:fontFamily="@font/roboto_slab"
+            android:textColor="@color/az_2"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/viewcategoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/az_1"
+            android:fontFamily="@font/roboto_slab"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewHabitos" />
+
+        <TextView
+            android:id="@+id/viewrep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:background="@color/az_2"
+            android:fontFamily="@font/roboto_slab"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
+    </LinearLayout>
 
     <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="300dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/viewHabitos"
-        app:layout_constraintEnd_toEndOf="@+id/viewHabitos"
-        app:layout_constraintStart_toStartOf="@+id/viewHabitos"
-        app:layout_constraintTop_toTopOf="@+id/viewHabitos" />
+        android:id="@+id/checkbox_habitos"
+        android:layout_width="27dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="40dp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
