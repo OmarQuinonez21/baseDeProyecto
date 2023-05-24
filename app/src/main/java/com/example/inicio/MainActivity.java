@@ -5,15 +5,25 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.inicio.adaphabitos.ListaHabitosAdapter;
 import com.example.inicio.databinding.ActivityMainBinding;
+import com.example.inicio.entidades.habitos;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 // git branch JP
 public class MainActivity extends AppCompatActivity {
     String nombreUsuario;
     private ActivityMainBinding binding;
+    RecyclerView listaHabitos;
+    ArrayList<habitos> listaArrayHabitos;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         nombreUsuario = getIntent().getStringExtra("usuario");
         getSupportActionBar().hide();
+
+        listaHabitos = (RecyclerView) findViewById(R.id.listahabitos_main);
+        listaHabitos.setLayoutManager(new LinearLayoutManager(this));
+        bdHabitos dbHabitos = new bdHabitos(MainActivity.this);
+        listaArrayHabitos = new ArrayList<>();
+        ListaHabitosAdapter adapter = new ListaHabitosAdapter(dbHabitos.mostrarHabitos());
+        listaHabitos.setAdapter(adapter);
+
 
         BottomNavigationView navView = findViewById(R.id.bottomNavigationView);
         navView.setSelectedItemId(R.id.navigation_home);

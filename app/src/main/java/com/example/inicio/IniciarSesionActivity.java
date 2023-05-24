@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.TextView;
+
+import java.util.Calendar;
 
 public class IniciarSesionActivity extends AppCompatActivity {
 
@@ -17,6 +20,8 @@ public class IniciarSesionActivity extends AppCompatActivity {
     EditText pass;
     String usuario;
     String password;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
         btnRegister=findViewById(R.id.reg);
         user=findViewById(R.id.user);
         pass=findViewById(R.id.pass);
+
 
         btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -51,6 +57,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
             public void onClick(View view){
                 Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
                 startActivity(intent);
+
             }
         });
     }
