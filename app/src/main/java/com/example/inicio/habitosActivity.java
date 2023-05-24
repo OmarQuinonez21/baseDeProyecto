@@ -145,7 +145,7 @@ public class habitosActivity extends AppCompatActivity  {
         if(cbViernes.isChecked()){
         viernes="1";
         }else{
-
+        viernes="0";
         }
         if(cbSabado.isChecked()){
         sabado="1";
