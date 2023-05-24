@@ -12,12 +12,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class RutinaActivity extends AppCompatActivity {
-
-
+    String nombreUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        nombreUsuario = getIntent().getStringExtra("usuario");
 
         setContentView(R.layout.activity_rutina);
         getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
@@ -28,18 +27,23 @@ public class RutinaActivity extends AppCompatActivity {
         navRutina.setOnItemSelectedListener(item->{
             if(item.getItemId()==R.id.navigation_pomo){
                 finish();
-                startActivity(new Intent(getApplicationContext(), pomodoroActivity.class));
+                Intent intent = new Intent(getApplicationContext(), pomodoroActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
-            } else if (item.getItemId()==R.id.navigation_home) {
+            }else if (item.getItemId()==R.id.navigation_home) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
             }
 
             else if (item.getItemId()==R.id.navigation_usuario) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), usuarioActivity.class));
-
+                Intent intent = new Intent(getApplicationContext(), usuarioActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
             }
 
@@ -52,7 +56,9 @@ public class RutinaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), habitosActivity.class));
+                Intent intent = new Intent(getApplicationContext(), habitosActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
 
             }
         });

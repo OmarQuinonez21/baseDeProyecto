@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tit_us" />
 
         <TextView
-            android:id="@+id/txtV_ajustesCuenta"
+            android:id="@+id/txtV_ajustes"
             android:layout_width="360dp"
             android:layout_height="42dp"
             android:layout_marginTop="32dp"
@@ -79,7 +79,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtV_ajustesCuenta" />
+            app:layout_constraintTop_toBottomOf="@+id/txtV_ajustes" />
 
         <TextView
             android:id="@+id/txtV_logOut"

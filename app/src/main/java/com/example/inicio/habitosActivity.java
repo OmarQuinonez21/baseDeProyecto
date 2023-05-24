@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class habitosActivity extends AppCompatActivity  {
-
+    String nombreUsuario;
     EditText nombre, categoria, nDias;
 
     Button saveHabit;
@@ -27,7 +27,7 @@ public class habitosActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_habitos);
         getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
-
+        nombreUsuario = getIntent().getStringExtra("usuario");
         saveHabit=(Button) findViewById(R.id.btn_habitoGuardar);
         nombre=findViewById(R.id.et_nombreHabito);
         categoria=findViewById(R.id.et_categoriaHabito);
@@ -69,24 +69,30 @@ public class habitosActivity extends AppCompatActivity  {
         navHabitos.setOnItemSelectedListener(item->{
             if(item.getItemId()==R.id.navigation_pomo){
                 finish();
-                startActivity(new Intent(getApplicationContext(), pomodoroActivity.class));
+                Intent intent = new Intent(getApplicationContext(), pomodoroActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
             } else if (item.getItemId()==R.id.navigation_home) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
             }
 
             else if (item.getItemId()==R.id.navigation_usuario) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), usuarioActivity.class));
-
+                Intent intent = new Intent(getApplicationContext(), usuarioActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
             }
             else if (item.getItemId()==R.id.navigation_rut) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), RutinaActivity.class));
-
+                Intent intent = new Intent(getApplicationContext(), RutinaActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
             }
 
@@ -145,7 +151,7 @@ public class habitosActivity extends AppCompatActivity  {
         if(cbViernes.isChecked()){
         viernes="1";
         }else{
-
+            viernes="0";
         }
         if(cbSabado.isChecked()){
         sabado="1";

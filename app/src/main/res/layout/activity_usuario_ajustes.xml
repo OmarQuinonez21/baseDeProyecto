@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UsuarioAjustesActivity">
+
+    <TextView
+        android:id="@+id/tit_us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/roboto_slab"
+        android:text="Ajustes cuenta"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgU_user"
+        android:layout_width="143dp"
+        android:layout_height="149dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/circle_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tit_us"
+        app:srcCompat="@drawable/baseline_person_24" />
+
+    <TextView
+        android:id="@+id/txtV_user"
+        android:layout_width="152dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="36dp"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintStart_toEndOf="@+id/imgU_user"
+        app:layout_constraintTop_toBottomOf="@+id/tit_us" />
+
+    <TextView
+        android:id="@+id/txtV_usuario"
+        android:layout_width="111dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:text="Usuario:"
+        android:textColor="@color/tur_2"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_nombre" />
+
+    <TextView
+        android:id="@+id/txtV_pass"
+        android:layout_width="154dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="32dp"
+        android:text="Contraseña:"
+        android:textColor="@color/tur_2"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_usuario"
+        tools:layout_editor_absoluteX="28dp" />
+
+    <TextView
+        android:id="@+id/txtV_nombre"
+        android:layout_width="111dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="36dp"
+        android:text="Nombre:"
+        android:textColor="@color/tur_2"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_changeImagen" />
+
+    <Button
+        android:id="@+id/btn_changeImagen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:text="Cambiar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgU_user" />
+
+    <EditText
+        android:id="@+id/etxt_pass"
+        android:layout_width="201dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/tur_2"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/tur_2"
+        app:layout_constraintStart_toEndOf="@+id/txtV_pass"
+        app:layout_constraintTop_toBottomOf="@+id/etxt_user"
+        tools:text="Contraseña" />
+
+    <EditText
+        android:id="@+id/etxt_user"
+        android:layout_width="201dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/tur_2"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/tur_2"
+        app:layout_constraintStart_toEndOf="@+id/txtV_usuario"
+        app:layout_constraintTop_toBottomOf="@+id/etxt_name3"
+        tools:text="Usuario" />
+
+    <EditText
+        android:id="@+id/etxt_name3"
+        android:layout_width="201dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/tur_2"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/tur_2"
+        app:layout_constraintStart_toEndOf="@+id/txtV_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/btn_changeImagen"
+        tools:text="Nombre" />
+
+    <Button
+        android:id="@+id/btn_guardarCambios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Guardar cambios"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_pass" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
