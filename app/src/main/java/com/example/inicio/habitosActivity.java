@@ -131,37 +131,37 @@ public class habitosActivity extends AppCompatActivity  {
         lunes = "1";
 
         }else{
-            lunes = "0";
+            lunes = " _ ";
         }
         if(cbMartes.isChecked()){
         martes="1";
         }else{
-            martes="0";
+            martes=" _ ";
         }
         if(cbMiercoles.isChecked()){
         miercoles="1";
         }else{
-            miercoles="0";
+            miercoles=" _ ";
         }
         if(cbJueves.isChecked()){
         jueves="1";
         }else{
-            jueves="0";
+            jueves=" _ ";
         }
         if(cbViernes.isChecked()){
         viernes="1";
         }else{
-            viernes="0";
+            viernes=" _ ";
         }
         if(cbSabado.isChecked()){
         sabado="1";
         }else{
-            sabado="0";
+            sabado=" _ ";
         }
         if(cbDomingo.isChecked()){
         domingo="1";
         }else{
-            domingo="0";
+            domingo=" _ ";
         }
 
 

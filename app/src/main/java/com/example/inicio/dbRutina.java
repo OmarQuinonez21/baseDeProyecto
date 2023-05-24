@@ -34,13 +34,13 @@ public class dbRutina extends bdHelper{
                 contacto = new Rutina();
                 contacto.setId(cursorContactos.getInt(0));
                 contacto.setHabito(cursorContactos.getString(1));
-                contacto.setLunes(cursorContactos.getString(2));
-                contacto.setMartes(cursorContactos.getString(3));
-                contacto.setMiercoles(cursorContactos.getString(4));
-                contacto.setJueves(cursorContactos.getString(5));
-                contacto.setViernes(cursorContactos.getString(6));
-                contacto.setSabado(cursorContactos.getString(7));
-                contacto.setDomingo(cursorContactos.getString(8));
+                contacto.setLunes(cursorContactos.getString(4));
+                contacto.setMartes(cursorContactos.getString(5));
+                contacto.setMiercoles(cursorContactos.getString(6));
+                contacto.setJueves(cursorContactos.getString(7));
+                contacto.setViernes(cursorContactos.getString(8));
+                contacto.setSabado(cursorContactos.getString(9));
+                contacto.setDomingo(cursorContactos.getString(10));
                 listaRutina.add(contacto);
             } while (cursorContactos.moveToNext());
         }

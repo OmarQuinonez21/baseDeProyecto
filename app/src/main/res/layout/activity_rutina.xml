@@ -31,9 +31,11 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_marginLeft="50sp"
+            android:layout_marginRight="50sp"
+            android:layout_width="300sp"
             android:layout_height="68dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="70dp"
             android:orientation="horizontal">
 
             <TextView
@@ -61,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="M"
+                android:text="Ma"
                 android:textColor="@color/tur_1"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
@@ -71,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="M"
+                android:text="Mi"
                 android:textColor="@color/tur_1"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
@@ -115,13 +117,16 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lista_habitos"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="132dp"/>
+                android:layout_marginTop="132dp"
+                android:layout_marginLeft="50sp"
+                android:layout_marginRight="50sp"
+                android:layout_width="310dp"
+                android:layout_height="490sp"/>
         </LinearLayout>
         
     </RelativeLayout>

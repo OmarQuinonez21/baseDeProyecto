@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.inicio.adaptadoresRutina.ListaRutinasAdapter;
 import com.example.inicio.databinding.ActivityMainBinding;
@@ -24,6 +25,7 @@ public class RutinaActivity extends AppCompatActivity {
     String nombreUsuario;
     RecyclerView listaRutinas;
     ArrayList<Rutina> listaArrayRutinas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
