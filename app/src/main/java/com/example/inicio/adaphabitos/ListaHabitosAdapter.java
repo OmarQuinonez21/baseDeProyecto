@@ -1,5 +1,7 @@
 package com.example.inicio.adaphabitos;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.inicio.R;
+import com.example.inicio.MainActivity;
 import com.example.inicio.entidades.habitos;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ListaHabitosAdapter extends RecyclerView.Adapter<ListaHabitosAdapter.HabitosViewHolder>{
 
@@ -31,7 +36,8 @@ public class ListaHabitosAdapter extends RecyclerView.Adapter<ListaHabitosAdapte
     public void onBindViewHolder(@NonNull HabitosViewHolder holder, int position) {
         holder.viewNombre.setText(listaHabitos.get(position).getNombre());
         holder.viewCat.setText(listaHabitos.get(position).getCat());
-        holder.viewRep.setText(listaHabitos.get(position).getRep());
+        holder.viewRep.setText(String.valueOf(listaHabitos.get(position).getRep()));
+
 
     }
 

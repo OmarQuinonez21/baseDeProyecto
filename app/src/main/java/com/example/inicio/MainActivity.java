@@ -7,10 +7,12 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.example.inicio.adaphabitos.ListaHabitosAdapter;
 import com.example.inicio.databinding.ActivityMainBinding;
 import com.example.inicio.entidades.habitos;
+import com.example.inicio.bdHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     RecyclerView listaHabitos;
     ArrayList<habitos> listaArrayHabitos;
+    ListaHabitosAdapter adapter;
 
 
 
@@ -33,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
         nombreUsuario = getIntent().getStringExtra("usuario");
         getSupportActionBar().hide();
 
-        listaHabitos = (RecyclerView) findViewById(R.id.listahabitos_main);
+        listaHabitos = findViewById(R.id.listahabitos_main);
         listaHabitos.setLayoutManager(new LinearLayoutManager(this));
         bdHabitos dbHabitos = new bdHabitos(MainActivity.this);
         listaArrayHabitos = new ArrayList<>();
-        ListaHabitosAdapter adapter = new ListaHabitosAdapter(dbHabitos.mostrarHabitos());
+        adapter = new ListaHabitosAdapter(dbHabitos.mostrarHabitos());
         listaHabitos.setAdapter(adapter);
 
 

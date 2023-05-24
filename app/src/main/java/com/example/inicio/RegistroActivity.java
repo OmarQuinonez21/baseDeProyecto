@@ -78,7 +78,10 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 pass=et_pass.getText().toString().trim();
                 img = selectedImageUri.toString();
                 signUp(nombre,usuario,correo,Sfecha,pais,ciudad,pass,img);
-
+                et_nom.setText("");     et_user.setText("");     et_correo.setText("");
+                et_fecha.setText("");   et_pais.setText("");     et_ciudad.setText("");
+                et_pass.setText("");
+                onBackPressed();
             }
         });
         btnCambiar.setOnClickListener(new View.OnClickListener() {
