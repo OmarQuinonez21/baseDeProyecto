@@ -1,18 +1,29 @@
 package com.example.inicio;
 
+import static com.example.inicio.bdHelper.TABLE_HABITS;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 
+import com.example.inicio.adaptadoresRutina.ListaRutinasAdapter;
 import com.example.inicio.databinding.ActivityMainBinding;
+import com.example.inicio.entidadesRutina.Rutina;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
 public class RutinaActivity extends AppCompatActivity {
     String nombreUsuario;
+    RecyclerView listaRutinas;
+    ArrayList<Rutina> listaArrayRutinas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +31,14 @@ public class RutinaActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_rutina);
         getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
+        listaRutinas=findViewById(R.id.lista_habitos);
+
+        listaRutinas.setLayoutManager(new LinearLayoutManager(this));
+        dbRutina BaseDatosRutina =new dbRutina(RutinaActivity.this);
+        listaArrayRutinas = new ArrayList<>();
+        ListaRutinasAdapter adapterRutina = new ListaRutinasAdapter(BaseDatosRutina.mostrarContactos());
+        listaRutinas.setAdapter(adapterRutina);
+
         BottomNavigationView navRutina = findViewById(R.id.bottomNavigationView);
         navRutina.setSelectedItemId(R.id.navigation_rut);
         navRutina.setBackground(null);
@@ -65,5 +84,7 @@ public class RutinaActivity extends AppCompatActivity {
 
 
 
+
     }
+
 }

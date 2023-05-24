@@ -6,6 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.inicio.entidadesRutina.Rutina;
+
+import java.util.ArrayList;
+
 public class bdHelper extends SQLiteOpenHelper {
     //Nombre de la base de datos
     private static final String DATABASE_NAME = "atem.db";
@@ -193,4 +197,6 @@ public class bdHelper extends SQLiteOpenHelper {
         Cursor cursor = db.query("usuarios", projection, selection, selectionArgs, null, null, null);
         return cursor;
     }
+
+
 }

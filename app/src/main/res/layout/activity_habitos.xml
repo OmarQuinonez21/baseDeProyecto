@@ -162,7 +162,7 @@
                 android:textStyle="bold"/>
         </LinearLayout>
         <LinearLayout
-            android:layout_width="308dp"
+            android:layout_width="match_parent"
             android:layout_height="48sp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="540dp">
@@ -170,9 +170,10 @@
             <Button
                 android:id="@+id/btn_habitoGuardar"
                 android:background="@drawable/button_rounded_res"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_width="240sp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20sp"
+                android:gravity="center"
                 android:textAllCaps="false"
                 android:textColor="@color/az_2"
                 android:textSize="20sp"
