@@ -36,6 +36,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
         getSupportActionBar().hide();
+
         btnRegresar=(ImageButton)findViewById(R.id.regreso_reg);
         btnBorrar=(Button)findViewById(R.id.btnborrar);
         btnRegistrar=(Button)findViewById(R.id.btnregistrar);
@@ -77,6 +78,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 pass=et_pass.getText().toString().trim();
                 img = selectedImageUri.toString();
                 signUp(nombre,usuario,correo,Sfecha,pais,ciudad,pass,img);
+
             }
         });
         btnCambiar.setOnClickListener(new View.OnClickListener() {

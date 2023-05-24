@@ -85,6 +85,7 @@ public class bdHelper extends SQLiteOpenHelper {
                         COLUMN_LUNES + " INTEGER, "+
                         COLUMN_MARTES + " INTEGER, "+
                         COLUMN_MIERCOLES + " INTEGER,"+
+                        COLUMN_JUEVES + " INTEGER,"+
                         COLUMN_VIERNES + " INTEGER,"+
                         COLUMN_SABADO + " INTEGER,"+
                         COLUMN_DOMINGO+ " INTEGER)"
@@ -107,32 +108,36 @@ public class bdHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    /*Metodo para guardar un habito
-    public void guardarHabito(String nombre, String user, String correo, String sfecha, String pais, String ciudad,String pass, String img) {
+
+    public void guardarHabito(String nombre, String categoria, String numDias, String m, String ma, String mier,String juev, String vier, String sab, String dom) {
 
         SQLiteDatabase db = this.getWritableDatabase();
-        String insertQuery = "INSERT INTO " + TABLE_USERS + " (" +
-                COLUMN_NOMBRE + ", "+
-                COLUMN_USERNAME + ", " +
-                COLUMN_CORREO + ", "+
-                COLUMN_FECHA + ", "+
-                COLUMN_PAIS + ", "+
-                COLUMN_CIUDAD+ ", "+
-                COLUMN_PASSWORD + ", "+
-                COLUMN_IMG + ") VALUES ('" +
+        String insertQuery = "INSERT INTO " + TABLE_HABITS + " (" +
+                COLUMN_HABIT + ", "+
+                COLUMN_CATEGORY + ", " +
+                COLUMN_TIMES + ", "+
+                COLUMN_LUNES + ", "+
+                COLUMN_MARTES + ", "+
+                COLUMN_MIERCOLES+ ", "+
+                COLUMN_JUEVES + ", "+
+                COLUMN_VIERNES + ", "+
+                COLUMN_SABADO + ", "+
+                COLUMN_DOMINGO + ") VALUES ('" +
                 nombre + "', '" +
-                user + "', '"+
-                correo + "', '"+
-                sfecha + "', '" +
-                pais + "', '"+
-                ciudad + "', '"+
-                pass + "', '"+
-                img + "')";
+                categoria + "', '"+
+                numDias + "', '"+
+                m + "', '" +
+                ma + "', '"+
+                mier + "', '"+
+                juev + "', '"+
+                vier + "', '"+
+                sab + "', '"+
+                dom + "')";
         db.execSQL(insertQuery);
         db.close();
     }
 
-     */
+
     //Método para registrar un usuario
     public void signUp(String nombre, String user, String correo, String sfecha, String pais, String ciudad,String pass, String img) {
         SQLiteDatabase db = this.getWritableDatabase();
