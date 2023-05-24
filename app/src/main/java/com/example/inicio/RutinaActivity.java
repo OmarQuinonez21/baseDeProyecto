@@ -13,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class RutinaActivity extends AppCompatActivity {
 
-    ImageButton btnRegresar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +21,6 @@ public class RutinaActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_rutina);
         getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
-        btnRegresar=(ImageButton)findViewById(R.id.regreso_rut);
-
         BottomNavigationView navRutina = findViewById(R.id.bottomNavigationView);
         navRutina.setSelectedItemId(R.id.navigation_rut);
         navRutina.setBackground(null);
@@ -59,14 +57,6 @@ public class RutinaActivity extends AppCompatActivity {
             }
         });
 
-        btnRegresar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-
-                onBackPressed();
-
-            }
-        });
 
 
     }

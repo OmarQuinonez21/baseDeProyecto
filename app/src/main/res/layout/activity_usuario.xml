@@ -7,20 +7,11 @@
     android:layout_height="match_parent"
     android:background="@color/az_3"
     tools:context=".usuarioActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageButton
-            android:id="@+id/regreso_user"
-            android:layout_width="43dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/az_3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_arrow_back_ios_new_24"
-            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/tit_us"
@@ -35,7 +26,79 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgU_user"
+            android:layout_width="143dp"
+            android:layout_height="149dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/circle_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tit_us"
+            app:srcCompat="@drawable/baseline_person_24" />
+
+        <TextView
+            android:id="@+id/txtV_user"
+            android:layout_width="152dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="36dp"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.136"
+            app:layout_constraintStart_toEndOf="@+id/imgU_user"
+            app:layout_constraintTop_toBottomOf="@+id/tit_us" />
+
+        <TextView
+            android:id="@+id/txtV_ajustesCuenta"
+            android:layout_width="360dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/border_background_usuario"
+            android:text="Ajustes de cuenta"
+            android:textAlignment="center"
+            android:textColor="@color/tur_2"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgU_user" />
+
+        <TextView
+            android:id="@+id/txtV_trofeos"
+            android:layout_width="361dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border_background_usuario"
+            android:text="Trofeos"
+            android:textAlignment="center"
+            android:textColor="@color/tur_2"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtV_ajustesCuenta" />
+
+        <TextView
+            android:id="@+id/txtV_logOut"
+            android:layout_width="360dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="96dp"
+            android:background="@drawable/border_background_usuario"
+            android:text="Cerrar sesion"
+            android:textAlignment="center"
+            android:textColor="@color/tur_2"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtV_trofeos" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
