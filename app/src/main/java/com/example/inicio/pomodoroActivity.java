@@ -23,6 +23,7 @@ public class pomodoroActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private static final long START_TIME_IN_MILLIS = 0;
     private EditText num1;
+    String nombreUsuario;
 
     private TextView indicaciones;
     private TextView mTextViewCountDown;
@@ -46,7 +47,7 @@ public class pomodoroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        nombreUsuario = getIntent().getStringExtra("usuario");
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
         setContentView(R.layout.activity_pomodoro);
@@ -57,7 +58,9 @@ public class pomodoroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), habitosActivity.class));
+                Intent intent = new Intent(getApplicationContext(), habitosActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
 
             }
         });
@@ -93,20 +96,24 @@ public class pomodoroActivity extends AppCompatActivity {
         navPomo.setBackground(null);
 
         navPomo.setOnItemSelectedListener(item->{
-            if(item.getItemId()==R.id.navigation_rut){
+            if(item.getItemId()==R.id.navigation_rut) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), RutinaActivity.class));
+                Intent intent = new Intent(getApplicationContext(), RutinaActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
             } else if (item.getItemId()==R.id.navigation_home) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
             }
             else if (item.getItemId()==R.id.navigation_usuario) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), usuarioActivity.class));
-
+                Intent intent = new Intent(getApplicationContext(), usuarioActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
             }
 

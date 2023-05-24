@@ -12,11 +12,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.inicio.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -30,7 +28,7 @@ public class usuarioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        nombreUsuario = getIntent().getStringExtra("usuario");
 
         setContentView(R.layout.activity_usuario);
         getSupportActionBar().hide(); //esconde el titulo de la app para usar toda la pantalla
@@ -40,16 +38,25 @@ public class usuarioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), habitosActivity.class));
+                Intent intent = new Intent(getApplicationContext(), habitosActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
 
             }
         });
         imgV_usuario = (ImageView) findViewById(R.id.imgU_user);
-        txt_ajustes = (TextView) findViewById(R.id.txtV_ajustesCuenta);
+        txt_ajustes = (TextView) findViewById(R.id.txtV_ajustes);
         txt_trofeos = (TextView) findViewById(R.id.txtV_trofeos);
         txt_logOut = (TextView) findViewById(R.id.txtV_logOut);
         usuario = (TextView) findViewById(R.id.txtV_user);
-        nombreUsuario = getIntent().getStringExtra("usuario");
+        txt_ajustes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Código para la acción cuando se hace clic en el TextView
+                Intent intent = new Intent(getApplicationContext(), UsuarioAjustesActivity.class);
+                startActivity(intent);
+            }
+        });
         asignarDatos(nombreUsuario);
         Log.d("Usuario", nombreUsuario);
         BottomNavigationView navPomo = findViewById(R.id.bottomNavigationView);
@@ -57,19 +64,23 @@ public class usuarioActivity extends AppCompatActivity {
         navPomo.setBackground(null);
 
         navPomo.setOnItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.navigation_rut) {
+            if (item.getItemId()==R.id.navigation_rut) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), RutinaActivity.class));
+                Intent intent = new Intent(getApplicationContext(), RutinaActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
-            } else if (item.getItemId() == R.id.navigation_home) {
+            }else if (item.getItemId()==R.id.navigation_home) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
-            } else if (item.getItemId() == R.id.navigation_pomo) {
+            } else if (item.getItemId()==R.id.navigation_pomo){
                 finish();
-                startActivity(new Intent(getApplicationContext(), pomodoroActivity.class));
-
+                Intent intent = new Intent(getApplicationContext(), pomodoroActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
                 return true;
             }
 
