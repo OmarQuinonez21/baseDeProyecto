@@ -175,7 +175,7 @@ public class bdHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String[] projection = {
-                "nommbre",
+                "nombre",
                 "username",
                 "pais",
                 "img"

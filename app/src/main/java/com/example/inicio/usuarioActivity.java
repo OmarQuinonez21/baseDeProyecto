@@ -1,19 +1,31 @@
 package com.example.inicio;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.inicio.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class usuarioActivity extends AppCompatActivity {
-
-    ImageButton btnRegresar;
+    String nombreUsuario;
+    Uri imagen;
+    private static final int REQUEST_CODE_PERMISSION = 123;
+    TextView txt_ajustes, txt_trofeos, txt_logOut, usuario;
+    ImageView imgV_usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,17 +44,14 @@ public class usuarioActivity extends AppCompatActivity {
 
             }
         });
-
-        btnRegresar = (ImageButton) findViewById(R.id.regreso_user);
-
-
-        btnRegresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
+        imgV_usuario = (ImageView) findViewById(R.id.imgU_user);
+        txt_ajustes = (TextView) findViewById(R.id.txtV_ajustesCuenta);
+        txt_trofeos = (TextView) findViewById(R.id.txtV_trofeos);
+        txt_logOut = (TextView) findViewById(R.id.txtV_logOut);
+        usuario = (TextView) findViewById(R.id.txtV_user);
+        nombreUsuario = getIntent().getStringExtra("usuario");
+        asignarDatos(nombreUsuario);
+        Log.d("Usuario", nombreUsuario);
         BottomNavigationView navPomo = findViewById(R.id.bottomNavigationView);
         navPomo.setSelectedItemId(R.id.navigation_usuario);
         navPomo.setBackground(null);
@@ -67,5 +76,38 @@ public class usuarioActivity extends AppCompatActivity {
 
             return true;
         });
+    }
+
+    public void asignarDatos(String user) {
+        bdHelper dbHelper = new bdHelper(this);
+        Cursor cursor = dbHelper.obtenerDatosUsuario(user);
+        if (cursor != null && cursor.moveToFirst()) {
+            String nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"));
+            usuario.setText(nombre);
+            String img = cursor.getString(cursor.getColumnIndexOrThrow("img"));
+            imagen = Uri.parse(img);
+            // Verificar si el permiso READ_EXTERNAL_STORAGE está concedido
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                // Solicitar el permiso en tiempo de ejecución si no está concedido
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_PERMISSION);
+            } else {
+                // Si el permiso está concedido, cargar la imagen desde la dirección guardada en la base de datos
+                imgV_usuario.setImageURI(imagen);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_PERMISSION) {
+            // Verificar si el permiso fue concedido
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Si el permiso fue concedido, cargar la imagen desde la dirección guardada en la base de datos
+                imgV_usuario.setImageURI(imagen);
+            } else {
+                // Si el permiso fue denegado, manejar la situación en consecuencia (mostrar un mensaje, deshabilitar la funcionalidad, etc.)
+            }
+        }
     }
 }

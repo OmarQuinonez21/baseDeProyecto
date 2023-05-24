@@ -40,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (item.getItemId()==R.id.navigation_usuario) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), usuarioActivity.class));
+                Intent intent = new Intent(getApplicationContext(), usuarioActivity.class);
+                String nombreUsuario = getIntent().getStringExtra("nombre_usuario");
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
 
                 return true;
             }
