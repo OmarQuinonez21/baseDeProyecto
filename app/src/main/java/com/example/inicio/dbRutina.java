@@ -50,32 +50,6 @@ public class dbRutina extends bdHelper{
         return listaRutina;
     }
 
-    public Rutina verContacto(int id) {
 
-        bdHelper dbHelper = new bdHelper(context);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-        Rutina contacto = null;
-        Cursor cursorContactos;
-
-        cursorContactos = db.rawQuery("SELECT * FROM " + TABLE_HABITS + " WHERE id = " + id + " LIMIT 1", null);
-
-        if (cursorContactos.moveToFirst()) {
-            contacto = new Rutina();
-            contacto.setId(cursorContactos.getInt(0));
-            contacto.setHabito(cursorContactos.getString(1));
-            contacto.setLunes(cursorContactos.getString(2));
-            contacto.setMartes(cursorContactos.getString(3));
-            contacto.setMiercoles(cursorContactos.getString(4));
-            contacto.setJueves(cursorContactos.getString(5));
-            contacto.setViernes(cursorContactos.getString(6));
-            contacto.setSabado(cursorContactos.getString(7));
-            contacto.setDomingo(cursorContactos.getString(8));
-        }
-
-        cursorContactos.close();
-
-        return contacto;
-    }
 
 }

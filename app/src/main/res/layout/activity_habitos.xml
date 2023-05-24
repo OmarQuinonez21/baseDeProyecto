@@ -56,7 +56,7 @@
             android:backgroundTint="@color/tur_1"
             android:ems="10"
             android:fontFamily="@font/roboto_slab"
-            android:hint="Nombre"
+            android:hint="Nombre (11/11)"
             android:inputType="text"
             android:textColor="@color/white"
             android:textSize="20sp"

@@ -11,6 +11,16 @@ public class Rutina {
     private String sabado;
     private String domingo;
 
+    private String L ="L";
+    private String Ma ="Ma";
+    private String Mi ="Mi";
+    private String J ="J";
+    private String V ="V";
+    private String S ="S";
+    private String D ="D";
+
+
+
     public int getId() {
         return id;
     }
@@ -32,7 +42,11 @@ public class Rutina {
     }
 
     public void setLunes(String lunes) {
-        this.lunes = lunes;
+        if(lunes.equals("1")){
+            this.lunes="L";
+        }else{
+            this.lunes=" _ ";
+        }
     }
 
     public String getMartes() {
@@ -40,7 +54,12 @@ public class Rutina {
     }
 
     public void setMartes(String martes) {
-        this.martes = martes;
+        if(martes.equals("1")){
+        this.martes="Ma";
+        }else{
+            this.martes=" _ ";
+        }
+
     }
 
     public String getMiercoles() {
@@ -48,7 +67,11 @@ public class Rutina {
     }
 
     public void setMiercoles(String miercoles) {
-        this.miercoles = miercoles;
+        if(miercoles.equals("1")){
+            this.miercoles="Mi";
+        }else{
+            this.miercoles=" _ ";
+        }
     }
 
     public String getJueves() {
@@ -56,7 +79,11 @@ public class Rutina {
     }
 
     public void setJueves(String jueves) {
-        this.jueves = jueves;
+        if(jueves.equals("1")){
+            this.jueves="J";
+        }else{
+            this.jueves=" _ ";
+        }
     }
 
     public String getViernes() {
@@ -64,7 +91,11 @@ public class Rutina {
     }
 
     public void setViernes(String viernes) {
-        this.viernes = viernes;
+        if(viernes.equals("1")){
+            this.viernes="V";
+        }else{
+            this.viernes=" _ ";
+        }
     }
 
     public String getSabado() {
@@ -72,7 +103,11 @@ public class Rutina {
     }
 
     public void setSabado(String sabado) {
-        this.sabado = sabado;
+        if(sabado.equals("1")){
+            this.sabado="S";
+        }else{
+            this.sabado=" _ ";
+        }
     }
 
     public String getDomingo() {
@@ -80,6 +115,10 @@ public class Rutina {
     }
 
     public void setDomingo(String domingo) {
-        this.domingo = domingo;
+        if(domingo.equals("1")){
+            this.domingo="D";
+        }else{
+            this.domingo=" _ ";
+        }
     }
 }

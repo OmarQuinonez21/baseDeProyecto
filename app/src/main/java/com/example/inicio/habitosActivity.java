@@ -45,20 +45,25 @@ public class habitosActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 onCheckboxClicked(view);
-                name=nombre.getText().toString().trim();
-                category=categoria.getText().toString().trim();
-                diasnumero=nDias.getText().toString().trim();
-                guardarHabito(name,category,diasnumero,lunes,martes,miercoles,jueves,viernes,sabado,domingo);
-                nombre.setText("");
-                categoria.setText("");
-                nDias.setText("");
-                cbLunes.setChecked(false);
-                cbMartes.setChecked(false);
-                cbMiercoles.setChecked(false);
-                cbJueves.setChecked(false);
-                cbViernes.setChecked(false);
-                cbSabado.setChecked(false);
-                cbDomingo.setChecked(false);
+                if(nombre.getText().toString().length()>11){
+                    showDialog("Error", "Use 11 caracteres como maximo");
+                }
+                else{
+                    name=nombre.getText().toString().trim();
+                    category=categoria.getText().toString().trim();
+                    diasnumero=nDias.getText().toString().trim();
+                    guardarHabito(name,category,diasnumero,lunes,martes,miercoles,jueves,viernes,sabado,domingo);
+                    nombre.setText("");
+                    categoria.setText("");
+                    nDias.setText("");
+                    cbLunes.setChecked(false);
+                    cbMartes.setChecked(false);
+                    cbMiercoles.setChecked(false);
+                    cbJueves.setChecked(false);
+                    cbViernes.setChecked(false);
+                    cbSabado.setChecked(false);
+                    cbDomingo.setChecked(false);
+                }
 
             }
         });
@@ -131,37 +136,37 @@ public class habitosActivity extends AppCompatActivity  {
         lunes = "1";
 
         }else{
-            lunes = " _ ";
+            lunes = "0";
         }
         if(cbMartes.isChecked()){
         martes="1";
         }else{
-            martes=" _ ";
+            martes="0";
         }
         if(cbMiercoles.isChecked()){
         miercoles="1";
         }else{
-            miercoles=" _ ";
+            miercoles="0";
         }
         if(cbJueves.isChecked()){
         jueves="1";
         }else{
-            jueves=" _ ";
+            jueves="0";
         }
         if(cbViernes.isChecked()){
         viernes="1";
         }else{
-            viernes=" _ ";
+            viernes="0";
         }
         if(cbSabado.isChecked()){
         sabado="1";
         }else{
-            sabado=" _ ";
+            sabado="0";
         }
         if(cbDomingo.isChecked()){
         domingo="1";
         }else{
-            domingo=" _ ";
+            domingo="0";
         }
 
 
