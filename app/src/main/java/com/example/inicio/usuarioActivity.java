@@ -22,7 +22,7 @@ public class usuarioActivity extends AppCompatActivity {
     String nombreUsuario;
     Uri imagen;
     private static final int REQUEST_CODE_PERMISSION = 123;
-    TextView txt_ajustes, txt_trofeos, txt_logOut, usuario;
+    TextView txtv_user,txt_ajustes, txt_trofeos, txt_logOut, txt_nombre;
     ImageView imgV_usuario;
 
     @Override
@@ -44,21 +44,39 @@ public class usuarioActivity extends AppCompatActivity {
 
             }
         });
+        txtv_user = (TextView) findViewById(R.id.txtv_userMini2);
         imgV_usuario = (ImageView) findViewById(R.id.imgU_user);
         txt_ajustes = (TextView) findViewById(R.id.txtV_ajustes);
         txt_trofeos = (TextView) findViewById(R.id.txtV_trofeos);
         txt_logOut = (TextView) findViewById(R.id.txtV_logOut);
-        usuario = (TextView) findViewById(R.id.txtV_user);
+        txt_nombre = (TextView) findViewById(R.id.txtV_user);
         txt_ajustes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Código para la acción cuando se hace clic en el TextView
                 Intent intent = new Intent(getApplicationContext(), UsuarioAjustesActivity.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
+            }
+        });
+        txt_trofeos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Código para la acción cuando se hace clic en el TextView
+                Intent intent = new Intent(getApplicationContext(), UsuarioTrofeos.class);
+                intent.putExtra("usuario",nombreUsuario);
+                startActivity(intent);
+            }
+        });
+        txt_logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Código para la acción cuando se hace clic en el TextView
+                Intent intent = new Intent(getApplicationContext(), IniciarSesionActivity.class);
                 startActivity(intent);
             }
         });
         asignarDatos(nombreUsuario);
-        Log.d("Usuario", nombreUsuario);
         BottomNavigationView navPomo = findViewById(R.id.bottomNavigationView);
         navPomo.setSelectedItemId(R.id.navigation_usuario);
         navPomo.setBackground(null);
@@ -94,7 +112,10 @@ public class usuarioActivity extends AppCompatActivity {
         Cursor cursor = dbHelper.obtenerDatosUsuario(user);
         if (cursor != null && cursor.moveToFirst()) {
             String nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"));
-            usuario.setText(nombre);
+            Log.d("Nombre_Usuario", nombre);
+            txt_nombre.setText(nombre);
+            String username = cursor.getString(cursor.getColumnIndexOrThrow("username"));
+            txtv_user.setText(username);
             String img = cursor.getString(cursor.getColumnIndexOrThrow("img"));
             imagen = Uri.parse(img);
             // Verificar si el permiso READ_EXTERNAL_STORAGE está concedido
@@ -103,6 +124,7 @@ public class usuarioActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_PERMISSION);
             } else {
                 // Si el permiso está concedido, cargar la imagen desde la dirección guardada en la base de datos
+                imgV_usuario.setBackgroundResource(R.drawable.circle_background);
                 imgV_usuario.setImageURI(imagen);
             }
         }
@@ -115,6 +137,7 @@ public class usuarioActivity extends AppCompatActivity {
             // Verificar si el permiso fue concedido
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Si el permiso fue concedido, cargar la imagen desde la dirección guardada en la base de datos
+                imgV_usuario.setBackgroundResource(R.drawable.circle_background);
                 imgV_usuario.setImageURI(imagen);
             } else {
                 // Si el permiso fue denegado, manejar la situación en consecuencia (mostrar un mensaje, deshabilitar la funcionalidad, etc.)

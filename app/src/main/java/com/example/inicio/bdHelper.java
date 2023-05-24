@@ -180,9 +180,10 @@ public class bdHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String[] projection = {
+                "id",
                 "nombre",
                 "username",
-                "pais",
+                "password",
                 "img"
                 // ... Agrega aquí el nombre de las columnas que deseas obtener
         };

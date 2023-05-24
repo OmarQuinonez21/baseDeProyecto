@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-    <solid android:color="@android:color/transparent" />
-    <stroke
-        android:width="2dp"
-        android:color="@color/tur_1" />
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/transparent" /> <!-- Color de fondo del círculo (puede ser transparente) -->
+    <corners android:radius="60dp" /> <!-- Radio de los bordes para formar un círculo (50% del tamaño del ancho/altura) -->
 </shape>

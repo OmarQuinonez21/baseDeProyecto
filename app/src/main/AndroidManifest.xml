@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Inicio"
         tools:targetApi="31">
         <activity
+            android:name=".UsuarioTrofeos"
+            android:exported="false" />
+        <activity
             android:name=".UsuarioAjustesActivity"
             android:exported="false" />
         <activity
