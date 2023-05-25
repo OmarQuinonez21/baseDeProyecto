@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/roboto_slab"
-            android:text="Crear habitos"
+            android:text="Editar habito"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -47,7 +47,7 @@
             android:textStyle="bold"
             />
         <EditText
-            android:id="@+id/et_nombreHabito"
+            android:id="@+id/txtHabito"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
@@ -57,7 +57,7 @@
             android:ems="10"
             android:fontFamily="@font/roboto_slab"
             android:hint="Nombre (18/18)"
-            android:inputType="textCapSentences"
+            android:inputType="text"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -68,10 +68,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
-            android:id="@+id/et_categoriaHabito"
+            android:id="@+id/txtCategoria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/et_nombreHabito"
+            android:layout_below="@+id/txtHabito"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
             android:ems="10"
@@ -82,7 +82,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <EditText
-            android:id="@+id/et_Frecuencia"
+            android:id="@+id/txtFrecuencia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
@@ -96,14 +96,14 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:layout_below="@+id/et_categoriaHabito"  />
+            android:layout_below="@+id/txtCategoria"  />
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical"
             android:layout_width="308dp"
             android:layout_height="250sp"
             android:layout_marginStart="48dp"
-            android:layout_below="@+id/et_Frecuencia" >
-            <CheckBox android:id="@+id/checkbox_lunes"
+            android:layout_below="@+id/txtFrecuencia" >
+            <CheckBox android:id="@+id/txtLunes"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:text="Lunes"
@@ -111,7 +111,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-            <CheckBox android:id="@+id/checkbox_martes"
+            <CheckBox android:id="@+id/txtMartes"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:text="Martes"
@@ -119,7 +119,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-            <CheckBox android:id="@+id/checkbox_miercoles"
+            <CheckBox android:id="@+id/txtMiercoles"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:text="Miercoles"
@@ -127,7 +127,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-            <CheckBox android:id="@+id/checkbox_jueves"
+            <CheckBox android:id="@+id/txtJueves"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:text="Jueves"
@@ -135,7 +135,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-            <CheckBox android:id="@+id/checkbox_viernes"
+            <CheckBox android:id="@+id/txtViernes"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:text="Viernes"
@@ -143,7 +143,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-            <CheckBox android:id="@+id/checkbox_sabado"
+            <CheckBox android:id="@+id/txtSabado"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:text="Sabado"
@@ -151,7 +151,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
-            <CheckBox android:id="@+id/checkbox_domingo"
+            <CheckBox android:id="@+id/txtDomingo"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:text="Domingo"
@@ -167,7 +167,7 @@
             android:layout_marginTop="540dp">
 
             <Button
-                android:id="@+id/btn_habitoGuardar"
+                android:id="@+id/btn_habitoEditar"
                 android:background="@drawable/button_rounded_res"
                 android:layout_width="240sp"
                 android:layout_height="match_parent"
@@ -177,40 +177,19 @@
                 android:textColor="@color/az_2"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="Guardar"/>
+                android:text="Editar"/>
         </LinearLayout>
 
 
     </RelativeLayout>
 
-
-
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fabCradleMargin="10dp"
-        app:fabCradleVerticalOffset="10dp"
-        app:fabCradleRoundedCornerRadius="20dp"
-        android:layout_gravity="bottom">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="16dp"
-            android:background="@android:color/transparent"
-            app:menu="@menu/bottom_nav_menu" />
-
-    </com.google.android.material.bottomappbar.BottomAppBar>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_check_24"
-        app:layout_anchor="@id/bottomAppBar" />
-
-
+    <ImageView
+        android:id="@+id/imgV_btnAtrasVer"
+        android:layout_width="29dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_ios_new_24" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

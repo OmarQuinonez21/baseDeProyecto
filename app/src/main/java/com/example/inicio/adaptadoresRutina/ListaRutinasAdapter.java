@@ -1,5 +1,7 @@
 package com.example.inicio.adaptadoresRutina;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.inicio.R;
+import com.example.inicio.VerActivity;
 import com.example.inicio.entidadesRutina.Rutina;
 
 import java.util.ArrayList;
@@ -58,6 +61,15 @@ public class ListaRutinasAdapter extends RecyclerView.Adapter<ListaRutinasAdapte
             column_viernes = itemView.findViewById(R.id.column_viernes);
             column_sabado = itemView.findViewById(R.id.column_sabado);
             column_domingo = itemView.findViewById(R.id.column_domingo);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, VerActivity.class);
+                    intent.putExtra("IdHabitos", listaRutinas.get(getAdapterPosition()).getId());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

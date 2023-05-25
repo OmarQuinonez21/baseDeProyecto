@@ -11,15 +11,9 @@ public class Rutina {
     private String sabado;
     private String domingo;
 
-    private String L ="L";
-    private String Ma ="Ma";
-    private String Mi ="Mi";
-    private String J ="J";
-    private String V ="V";
-    private String S ="S";
-    private String D ="D";
+    private String categoria;
 
-
+    private String frecuencia;
 
     public int getId() {
         return id;
@@ -120,5 +114,21 @@ public class Rutina {
         }else{
             this.domingo="   ";
         }
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getFrecuencia() {
+        return frecuencia;
+    }
+
+    public void setFrecuencia(String frecuencia) {
+        this.frecuencia = frecuencia;
     }
 }
