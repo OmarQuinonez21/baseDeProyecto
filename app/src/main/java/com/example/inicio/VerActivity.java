@@ -36,7 +36,7 @@ public class VerActivity extends AppCompatActivity implements AdapterView.OnItem
 
     ArrayList<String> lista = new ArrayList<>();
 
-    Button saveHabit;
+    Button saveHabit, deleteHabit;
 
     CheckBox cbLunes, cbMartes, cbMiercoles, cbJueves, cbViernes, cbSabado, cbDomingo;
     String name, category, diasnumero, lunes, martes, miercoles, jueves, viernes, sabado, domingo, nameEditando;
@@ -51,6 +51,7 @@ public class VerActivity extends AppCompatActivity implements AdapterView.OnItem
         //Aqui yahel puede agregar intent para volver de la vista editar
         nombreUsuario = getIntent().getStringExtra("usuario");
         saveHabit=(Button) findViewById(R.id.btn_habitoEditar);
+        deleteHabit=(Button) findViewById(R.id.btn_habitoBorrar);
         nombre=findViewById(R.id.txtHabito);
         sCategorias = findViewById(R.id.txtCategoria);
         agregandoValores();
@@ -114,7 +115,45 @@ public class VerActivity extends AppCompatActivity implements AdapterView.OnItem
 
             }
         });
+        deleteHabit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCheckboxClicked(view);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(VerActivity.this);
+                    builder.setMessage("¿Desea eliminar este contacto?").setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            borrarHabito();
+                        }
+                    }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
+                        }
+                    }).show();
+
+                    name=nombre.getText().toString().trim();
+
+                    //aqui va categoria
+
+
+                    diasnumero=nDias.getText().toString().trim();
+
+
+                    nombre.setText("");
+                    //categoria.setText("");
+                    nDias.setText("");
+                    cbLunes.setChecked(false);
+                    cbMartes.setChecked(false);
+                    cbMiercoles.setChecked(false);
+                    cbJueves.setChecked(false);
+                    cbViernes.setChecked(false);
+                    cbSabado.setChecked(false);
+                    cbDomingo.setChecked(false);
+
+
+            }
+        });
     }
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
@@ -230,6 +269,22 @@ public class VerActivity extends AppCompatActivity implements AdapterView.OnItem
         db.execSQL(sql);
         db.close();
         showDialog("Actualización", "Se han actualizado los datos correctamente");
+        finish();
+        Intent intentEdit = new Intent(getApplicationContext(), RutinaActivity.class);
+        intentEdit.putExtra("usuario",nombreUsuario);
+        startActivity(intentEdit);
+    }
+    public void borrarHabito(){
+        bdHelper dbHelper = new bdHelper(this);
+        // Creamos un objeto SQLiteDatabase que lo que hace ayudarnos a obtener una base de datos que
+        // hicimos en bdHelper
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Ejecutamos la consulta UPDATE
+        String sql = "DELETE FROM habitos WHERE habito='" + nameEditando + "'";
+        db.execSQL(sql);
+        db.close();
+        showDialog("Eliminado", "Se han eliminado los datos correctamente");
         finish();
         Intent intentEdit = new Intent(getApplicationContext(), RutinaActivity.class);
         intentEdit.putExtra("usuario",nombreUsuario);

@@ -169,7 +169,7 @@
             <Button
                 android:id="@+id/btn_habitoEditar"
                 android:background="@drawable/button_rounded_res"
-                android:layout_width="240sp"
+                android:layout_width="120sp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20sp"
                 android:gravity="center"
@@ -178,6 +178,18 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:text="Editar"/>
+            <Button
+                android:id="@+id/btn_habitoBorrar"
+                android:background="@drawable/button_rounded_res"
+                android:layout_width="120sp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20sp"
+                android:gravity="center"
+                android:textAllCaps="false"
+                android:textColor="@color/az_2"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Borrar"/>
         </LinearLayout>
 
 
