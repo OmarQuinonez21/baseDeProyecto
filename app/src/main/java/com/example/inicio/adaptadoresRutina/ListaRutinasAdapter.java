@@ -34,6 +34,8 @@ public class ListaRutinasAdapter extends RecyclerView.Adapter<ListaRutinasAdapte
     @Override
     public void onBindViewHolder(@NonNull ListaRutinasAdapter.RutinaViewHolder holder, int position) {
         holder.column_habito.setText(listaRutinas.get(position).getHabito());
+        holder.column_categoria.setText(listaRutinas.get(position).getCategoria());
+        holder.column_frecuencia.setText(listaRutinas.get(position).getFrecuencia());
         holder.column_lunes.setText(listaRutinas.get(position).getLunes());
         holder.column_martes.setText(listaRutinas.get(position).getMartes());
         holder.column_miercoles.setText(listaRutinas.get(position).getMiercoles());
@@ -50,10 +52,12 @@ public class ListaRutinasAdapter extends RecyclerView.Adapter<ListaRutinasAdapte
 
     public class RutinaViewHolder extends RecyclerView.ViewHolder {
 
-        TextView column_habito, column_lunes, column_martes, column_miercoles, column_jueves, column_viernes, column_sabado, column_domingo;
+        TextView column_habito, column_frecuencia, column_categoria, column_lunes, column_martes, column_miercoles, column_jueves, column_viernes, column_sabado, column_domingo;
         public RutinaViewHolder(@NonNull View itemView) {
             super(itemView);
             column_habito = itemView.findViewById(R.id.column_habito);
+            column_categoria = itemView.findViewById(R.id.column_categoria);
+            column_frecuencia = itemView.findViewById(R.id.column_frecuencia);
             column_lunes = itemView.findViewById(R.id.column_lunes);
             column_martes = itemView.findViewById(R.id.column_martes);
             column_miercoles = itemView.findViewById(R.id.column_miercoles);

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class habitosActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     String nombreUsuario;
-    EditText nombre, categoria, nDias;
+    EditText nombre,  nDias;
 
     Spinner sCategorias;
     ArrayList<String> lista = new ArrayList<>();

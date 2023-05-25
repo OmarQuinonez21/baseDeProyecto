@@ -34,6 +34,8 @@ public class dbRutina extends bdHelper{
                 contacto = new Rutina();
                 contacto.setId(cursorContactos.getInt(0));
                 contacto.setHabito(cursorContactos.getString(1));
+                contacto.setCategoria(cursorContactos.getString(2));
+                contacto.setFrecuencia(cursorContactos.getString(3));
                 contacto.setLunes(cursorContactos.getString(4));
                 contacto.setMartes(cursorContactos.getString(5));
                 contacto.setMiercoles(cursorContactos.getString(6));
@@ -65,7 +67,7 @@ public class dbRutina extends bdHelper{
                 contacto.setId(cursorContactos.getInt(0));
                 contacto.setHabito(cursorContactos.getString(1));
                 contacto.setCategoria(cursorContactos.getString(2));
-                contacto.setCategoria(cursorContactos.getString(3));
+                contacto.setFrecuencia(cursorContactos.getString(3));
                 contacto.setLunes(cursorContactos.getString(4));
                 contacto.setMartes(cursorContactos.getString(5));
                 contacto.setMiercoles(cursorContactos.getString(6));
