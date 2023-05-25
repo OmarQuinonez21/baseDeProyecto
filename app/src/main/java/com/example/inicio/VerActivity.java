@@ -120,7 +120,7 @@ public class VerActivity extends AppCompatActivity implements AdapterView.OnItem
             public void onClick(View view) {
                 onCheckboxClicked(view);
                     AlertDialog.Builder builder = new AlertDialog.Builder(VerActivity.this);
-                    builder.setMessage("¿Desea eliminar este contacto?").setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                    builder.setMessage("¿Desea eliminar este habito?").setPositiveButton("Sí", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             borrarHabito();
