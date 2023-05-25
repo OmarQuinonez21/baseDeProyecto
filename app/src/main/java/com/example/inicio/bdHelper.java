@@ -140,6 +140,23 @@ public class bdHelper extends SQLiteOpenHelper {
         db.execSQL(insertQuery);
         db.close();
     }
+ //Metodo para UPDATE database
+    public void editarHabito( String habitoEditando, String nombre, String categoria, String numDias, String m, String ma, String mier,String juev, String vier, String sab, String dom) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String insertQuery = "UPDATE habitos SET habito='" + nombre + "', "+
+                "categoria= '" + categoria + "', " +
+                "frecuencia= '" + numDias + "', " +
+                "lunes= '" + m + "', " +
+                "martes= '" + ma + "', " +
+                "miercoles= '" + mier + "', " +
+                "jueves= '" + juev + "', " +
+                "viernes= '" + vier + "', " +
+                "sabado= '" + sab + "', " +
+                "domingo= '" + dom + "' WHERE habito= '" + habitoEditando + "'";
+        db.execSQL(insertQuery);
+        db.close();
+    }
 
 
     //Método para registrar un usuario

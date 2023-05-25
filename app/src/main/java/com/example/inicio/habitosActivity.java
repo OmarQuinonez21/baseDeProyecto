@@ -67,8 +67,6 @@ public class habitosActivity extends AppCompatActivity implements AdapterView.On
                 } else{
                     name=nombre.getText().toString().trim();
 
-                    //aqui va categoria
-
 
                     diasnumero=nDias.getText().toString().trim();
                     guardarHabito(name,category,diasnumero,lunes,martes,miercoles,jueves,viernes,sabado,domingo);
