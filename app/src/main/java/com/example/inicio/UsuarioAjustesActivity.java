@@ -22,19 +22,28 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 public class UsuarioAjustesActivity extends AppCompatActivity {
+    // Esta variable puede ser cualquier numero
     private static final int REQUEST_SELECT_IMAGE = 100;
+    // Esta variable puede ser cualquier numero
     private static final int REQUEST_CODE_PERMISSION = 123;
+    // Comprobador es para ver si el usario cambió de imagen
     int comprobador_cambioImagen=0;
+    // Variables para guardar datos de la base de datos
     String nombreUsuario,id,img;
+    // Variables para guardar las imagenes en formato Uri
     Uri imagen,selectedImageUri;
+    // Variables para recolectar los ImageView de activity_usuario_ajustes
     ImageView imgUser, btnAtras;
+    // Variables para recolectar los EditText de activity_usuario_ajustes
     EditText et_name,et_user,et_pass;
+    // Variables para recolectar los Button de activity_usuario_ajustes
     Button btn_actualizar, btn_cambiarImg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario_ajustes);
         getSupportActionBar().hide();
+        // Hacemos conexión java-xml
         et_name = (EditText) findViewById(R.id.etxt_name);
         et_user = (EditText) findViewById(R.id.etxt_user);
         et_pass = (EditText) findViewById(R.id.etxt_pass);
@@ -42,8 +51,11 @@ public class UsuarioAjustesActivity extends AppCompatActivity {
         btn_cambiarImg = (Button) findViewById(R.id.btn_changeImagen);
         imgUser = (ImageView) findViewById(R.id.imgU_user);
         btnAtras = (ImageView) findViewById(R.id.imgV_btnAtras);
+        // Obtenemos el usuario de otra activity
         nombreUsuario = getIntent().getStringExtra("usuario");
+        // Llamamos el método asignarDatos y le mandamos como parametro nombreUsuario
         asignarDatos(nombreUsuario);
+        // Si el usuario hace click a la flecha de atras, se íra para atras
         btnAtras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,22 +65,28 @@ public class UsuarioAjustesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // Si el usuario desea cambiar la imagen, entrará aquí
         btn_cambiarImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Esto es para ver los archivos del usuario
                 Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent.setType("image/*");
                 startActivityForResult(intent, REQUEST_SELECT_IMAGE);
+                // Activamos nuestro comprobador
                 comprobador_cambioImagen=1;
             }
         });
+        // Para guardar cambios
         btn_actualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Llamamos al método guardar cambios
                 guardarCambios(nombreUsuario);
             }
         });
     }
+    // Cuando el usuario elija la imagen, entrará aquí
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -79,16 +97,24 @@ public class UsuarioAjustesActivity extends AppCompatActivity {
             }
         }
     }
+    //Método que guardará todos los cambios realizados
     public void guardarCambios(String user){
+        // Creamos un objeto bdHelper, para poder acceder a todos los métodos de la clase bdHelper.java
         bdHelper dbHelper = new bdHelper(this);
+        // Creamos un objeto SQLiteDatabase que lo que hace ayudarnos a obtener una base de datos que
+        // hicimos en bdHelper
         SQLiteDatabase db = dbHelper.getWritableDatabase();
+        // Variable que guardará la dirección de imagen
         String imagen;
+        // Si el usuario no cambió su imagen, entra aquí
         if (comprobador_cambioImagen==0){
             imagen=img;
         }
+        // Si sí la cambio, entrará aquí
         else {
             imagen=selectedImageUri.toString();
         }
+        // Ejecutamos la consulta UPDATE
         String sql = "UPDATE usuarios SET nombre='" + et_name.getText().toString().trim() + "', "+
                 "username= '" + et_user.getText().toString().trim() + "', " +
                 "password= '" + et_pass.getText().toString().trim() + "', " +
@@ -96,8 +122,11 @@ public class UsuarioAjustesActivity extends AppCompatActivity {
         db.execSQL(sql);
         db.close();
         showDialog("Actualización", "Se han actualizado los datos correctamente");
+        // Actualizamos nuestra variable que usamos para mandar a otras activitys
         nombreUsuario = et_user.getText().toString().trim();
     }
+    // Método para asignar los datos del usuario (Nombre, usuario, contraseña e imagen) y que se vean
+    // en el activity.
     public void asignarDatos(String user) {
         bdHelper dbHelper = new bdHelper(this);
         Cursor cursor = dbHelper.obtenerDatosUsuario(user);
@@ -132,8 +161,6 @@ public class UsuarioAjustesActivity extends AppCompatActivity {
                 // Si el permiso fue concedido, cargar la imagen desde la dirección guardada en la base de datos
                 imgUser.setBackgroundResource(R.drawable.circle_background);
                 imgUser.setImageURI(imagen);
-            } else {
-                // Si el permiso fue denegado, manejar la situación en consecuencia (mostrar un mensaje, deshabilitar la funcionalidad, etc.)
             }
         }
     }

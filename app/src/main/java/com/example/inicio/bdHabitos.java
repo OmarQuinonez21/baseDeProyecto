@@ -24,7 +24,38 @@ public class bdHabitos extends bdHelper {
     }
 
     public ArrayList<habitos> mostrarHabitos() {
+        Calendar c= Calendar.getInstance();
+        int dia=c.get(Calendar.DAY_OF_MONTH);
 
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+
+        String dayOfWeekString;
+        switch (dayOfWeek) {
+            case Calendar.SUNDAY:
+                dayOfWeekString = "domingo";
+                break;
+            case Calendar.MONDAY:
+                dayOfWeekString = "lunes";
+                break;
+            case Calendar.TUESDAY:
+                dayOfWeekString = "martes";
+                break;
+            case Calendar.WEDNESDAY:
+                dayOfWeekString = "miercoles";
+                break;
+            case Calendar.THURSDAY:
+                dayOfWeekString = "jueves";
+                break;
+            case Calendar.FRIDAY:
+                dayOfWeekString = "viernes";
+                break;
+            case Calendar.SATURDAY:
+                dayOfWeekString = "sabado";
+                break;
+            default:
+                dayOfWeekString = "Día de la semana desconocido";
+                break;
+        }
         bdHelper dbHelper = new bdHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -32,7 +63,7 @@ public class bdHabitos extends bdHelper {
         habitos habito = null;
         Cursor cursorHabitos = null;
 
-        cursorHabitos = db.rawQuery("SELECT habito,categoria, frecuencia FROM habitos", null);
+        cursorHabitos = db.rawQuery("SELECT habito,categoria, frecuencia FROM habitos WHERE "+ dayOfWeekString +"= 1", null);
 
         if (cursorHabitos.moveToFirst()) {
             do {
