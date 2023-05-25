@@ -45,8 +45,8 @@ public class habitosActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 onCheckboxClicked(view);
-                if(nombre.getText().toString().length()>11){
-                    showDialog("Error", "Use 11 caracteres como maximo");
+                if(nombre.getText().toString().length()>18){
+                    showDialog("Error", "Use 18 caracteres como maximo");
                 }
                 else{
                     name=nombre.getText().toString().trim();
