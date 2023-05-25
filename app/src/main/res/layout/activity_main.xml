@@ -16,7 +16,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto_slab"
-            android:text="Hábitos"
+            android:text="Hábitos de hoy"
             android:textColor="@color/tur_1"
             android:textSize="25sp"
             android:textStyle="bold"

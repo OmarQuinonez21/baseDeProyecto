@@ -62,8 +62,9 @@ public class habitosActivity extends AppCompatActivity implements AdapterView.On
                 onCheckboxClicked(view);
                 if(nombre.getText().toString().length()>18){
                     showDialog("Error", "Use 18 caracteres como maximo");
-                }
-                else{
+                } else if (Integer.parseInt(nDias.getText().toString())<1) {
+                    showDialog("Error", "Ingrese valor mayor a 0 en frecuencia");
+                } else{
                     name=nombre.getText().toString().trim();
 
                     //aqui va categoria

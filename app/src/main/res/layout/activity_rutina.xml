@@ -10,143 +10,48 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="540sp">
+        <TextView
+            android:id="@+id/tit_rutina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto_slab"
+            android:text="Rutina"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-        android:id="@+id/tit_rutina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/roboto_slab"
-        android:text="Rutina"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/text_view_indicacionesRutina"
-                android:layout_width="308dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="48dp"
-                android:fontFamily="@font/roboto_slab"
-                android:gravity="center"
-                android:text="Se muestran sus habitos y los dias de la semana habilitados"
-                android:textColor="@color/tur_1"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginLeft="50sp"
-            android:layout_marginRight="50sp"
-            android:layout_width="300sp"
-            android:layout_height="68dp"
-            android:layout_marginTop="110dp"
-            android:orientation="horizontal">
+            android:id="@+id/sub_habitos"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto_slab"
+            android:text="Hábitos por semana"
+            android:textColor="@color/tur_1"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tit_rutina" />
 
-            <TextView
-                android:id="@+id/tituloHabito"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Habito"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/tituloLunes"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="L"
-                android:textColor="@color/tur_1"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/tituloMartes"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Ma"
-                android:textColor="@color/tur_1"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/tituloMiercoles"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Mi"
-                android:textColor="@color/tur_1"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/tituloJueves"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="J"
-                android:textColor="@color/tur_1"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/tituloViernes"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="V"
-                android:textColor="@color/tur_1"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/tituloSabado"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="S"
-                android:textColor="@color/tur_1"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/tituloDomingo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="D"
-                android:textColor="@color/tur_1"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lista_habitos"
-                android:layout_marginTop="170dp"
-                android:layout_marginLeft="30sp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
                 android:layout_width="340dp"
-                android:layout_height="450sp"/>
-        </LinearLayout>
+                android:layout_height="400sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sub_habitos"/>
+
         
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
