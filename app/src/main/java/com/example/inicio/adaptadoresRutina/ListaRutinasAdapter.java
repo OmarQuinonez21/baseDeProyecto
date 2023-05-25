@@ -13,13 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.inicio.R;
 import com.example.inicio.VerActivity;
 import com.example.inicio.entidadesRutina.Rutina;
-
+import com.example.inicio.RutinaActivity;
 import java.util.ArrayList;
 
 public class ListaRutinasAdapter extends RecyclerView.Adapter<ListaRutinasAdapter.RutinaViewHolder>{
-
+    String usuario;
     ArrayList<Rutina> listaRutinas;
-    public ListaRutinasAdapter(ArrayList<Rutina> listaRutinas){
+    public ListaRutinasAdapter(ArrayList<Rutina> listaRutinas, String user){
+        usuario=user;
         this.listaRutinas = listaRutinas;
     }
 
@@ -70,6 +71,7 @@ public class ListaRutinasAdapter extends RecyclerView.Adapter<ListaRutinasAdapte
                 public void onClick(View view) {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, VerActivity.class);
+                    intent.putExtra("usuario", usuario);
                     intent.putExtra("IdHabitos", listaRutinas.get(getAdapterPosition()).getId());
                     context.startActivity(intent);
                 }

@@ -38,7 +38,7 @@ public class RutinaActivity extends AppCompatActivity {
         listaRutinas.setLayoutManager(new LinearLayoutManager(this));
         dbRutina BaseDatosRutina =new dbRutina(RutinaActivity.this);
         listaArrayRutinas = new ArrayList<>();
-        ListaRutinasAdapter adapterRutina = new ListaRutinasAdapter(BaseDatosRutina.mostrarContactos());
+        ListaRutinasAdapter adapterRutina = new ListaRutinasAdapter(BaseDatosRutina.mostrarContactos(), nombreUsuario);
         listaRutinas.setAdapter(adapterRutina);
 
         BottomNavigationView navRutina = findViewById(R.id.bottomNavigationView);
