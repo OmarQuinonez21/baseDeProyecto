@@ -45,7 +45,7 @@ public class Rutina {
         if(lunes.equals("1")){
             this.lunes="L  ";
         }else{
-            this.lunes="";
+            this.lunes="   ";
         }
     }
 
@@ -55,9 +55,9 @@ public class Rutina {
 
     public void setMartes(String martes) {
         if(martes.equals("1")){
-        this.martes="Ma  ";
+        this.martes="Ma ";
         }else{
-            this.martes="";
+            this.martes="   ";
         }
 
     }
@@ -68,9 +68,9 @@ public class Rutina {
 
     public void setMiercoles(String miercoles) {
         if(miercoles.equals("1")){
-            this.miercoles="Mi  ";
+            this.miercoles="Mi ";
         }else{
-            this.miercoles="";
+            this.miercoles="   ";
         }
     }
 
@@ -80,9 +80,9 @@ public class Rutina {
 
     public void setJueves(String jueves) {
         if(jueves.equals("1")){
-            this.jueves="J  ";
+            this.jueves="J   ";
         }else{
-            this.jueves="";
+            this.jueves="   ";
         }
     }
 
@@ -94,7 +94,7 @@ public class Rutina {
         if(viernes.equals("1")){
             this.viernes="V  ";
         }else{
-            this.viernes="";
+            this.viernes="   ";
         }
     }
 
@@ -106,7 +106,7 @@ public class Rutina {
         if(sabado.equals("1")){
             this.sabado="S  ";
         }else{
-            this.sabado="";
+            this.sabado="   ";
         }
     }
 
@@ -118,7 +118,7 @@ public class Rutina {
         if(domingo.equals("1")){
             this.domingo="D  ";
         }else{
-            this.domingo="";
+            this.domingo="   ";
         }
     }
 }

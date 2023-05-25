@@ -66,22 +66,22 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        <EditText
+
+        <Spinner
             android:id="@+id/et_categoriaHabito"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/et_nombreHabito"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
-            android:backgroundTint="@color/tur_1"
             android:ems="10"
             android:fontFamily="@font/roboto_slab"
-            android:hint="Categoria"
-            android:inputType="text"
-            android:textColor="@color/white"
+            android:spinnerMode="dropdown"
+            android:textColor="#FF0000"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:layout_below="@+id/et_nombreHabito"  />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <EditText
             android:id="@+id/et_Frecuencia"
             android:layout_width="match_parent"
