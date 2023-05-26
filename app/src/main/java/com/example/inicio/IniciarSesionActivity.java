@@ -49,6 +49,9 @@ public class IniciarSesionActivity extends AppCompatActivity {
                     intent.putExtra("usuario", usuario);
                     startActivity(intent);
                 }
+                else{
+                    showDialog("Error", "Usuario o contraseña incorrectos");
+                }
 
             }
         });

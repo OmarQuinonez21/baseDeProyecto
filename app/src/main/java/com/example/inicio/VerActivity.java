@@ -26,7 +26,6 @@ public class VerActivity extends AppCompatActivity implements AdapterView.OnItem
 
     EditText nombre, nDias;
     Spinner sCategorias;
-    String nombreRutina;
     ImageView btnAtrasVer;
 
     Rutina rutina;
